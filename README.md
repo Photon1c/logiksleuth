@@ -10,5 +10,5 @@ most probablty answer given a set of clearly defined inputs to start from.
 Initially an examples folder will be created to demonstrate the ideal state that LogikSleuth will achieve once
 it is fully deployed. This repository is a collection of gradual commits.
 
-![Cartoon of an owl sleuth](owlsleuth.png)
+![logo](logiksleuth.png)
 <br>

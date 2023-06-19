@@ -14,6 +14,8 @@ The galton board function is a useful baseline to build more complex predictive 
 the Murder Accountability Projects' data sets and methodology to formalize a programmatic approach to cold case solving. Check back later as
 scripts ready to be released publicly are published.
 
+Update June 2023: The citations_generator script can be used to maintain a reliable database of sources to use in bibliographies.
+
 ![logo](logiksleuth.png)
 <br>
 

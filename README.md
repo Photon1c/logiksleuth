@@ -31,8 +31,8 @@ John V. Guttag. Introduction to Computation and Programming Using Python (Fall 2
 Michael Taylor. Neural Networks: A Visual Introduction For Beginners. 2017. Blue Windmill Media, Canada.<br>
 Peter A. Lawrence. The Making of a Fly: The Genetics of Animal Design. 1992. Blackwell Scientific Publications, Oxford, London.<br>
 Peter L. Bernstein. Against The Gods: The Remarkable Story of Risk. 1996. John Wiley & Sons, Inc, Canada.<br>
-Philip A. Fisher. Common Stocks and Uncommon Profits and Other Writings. 2003. Wiley, Hoboken, New Jersey.
-Richard A. Brealey, Stewart C. Myers, Alan J. Marcus. Fundamentals of Corporate Finance. 2007. McGraw-Hill/Irwin, New York, New York. USA.
-Robert J. Shiller. Narrative Economics: How Stories Go Viral & Drive Major Economic Events. 2019. Princeton University Press, Princeton, New Jersey.
-William J. Stevenson. Operations Management: International Student Edition with Global Readings. 2007. McGraw-Hill/Irwin, New York, New York. USA.
+Philip A. Fisher. Common Stocks and Uncommon Profits and Other Writings. 2003. Wiley, Hoboken, New Jersey.<br>
+Richard A. Brealey, Stewart C. Myers, Alan J. Marcus. Fundamentals of Corporate Finance. 2007. McGraw-Hill/Irwin, New York, New York. USA.<br>
+Robert J. Shiller. Narrative Economics: How Stories Go Viral & Drive Major Economic Events. 2019. Princeton University Press, Princeton, New Jersey.<br>
+William J. Stevenson. Operations Management: International Student Edition with Global Readings. 2007. McGraw-Hill/Irwin, New York, New York. USA.<br>
 </details>

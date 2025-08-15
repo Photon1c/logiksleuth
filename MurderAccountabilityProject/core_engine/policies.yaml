@@ -1,0 +1,19 @@
+policy:
+  closed_cases:
+    retain_fields: [name, conviction_status, mo_tags, date, county, geo_precision]
+    joins_allowed: true
+  active_cases:
+    retain_fields: [age_band, sex, mo_tags, week_band, county, geo_precision]
+    strip: [name, exact_dob, address, gps_exact, phone, email, handles, plate]
+    joins_allowed: false
+  unknown_cases:
+    action: status_resolver
+pii_scanner:
+  regexes: [EMAIL, PHONE, SSN, PLATE, STREET_ADDR, HANDLE, GPS_COORD]
+  thresholds:
+    high: 0.6
+rbac:
+  public: [closed_cases_low_risk]
+  research: [closed_low, closed_med, active_minimal]
+retention:
+  active_minimal: "18m"

@@ -30,3 +30,5 @@ Quarantine:      0
 == Quarantine (showing up to 3) ==
 
 ```
+
+These scripts essentially aim to "clean" and weed out PII from out data set. The UCR dataset candidates meet all requirements to proceed with analysis. Future entries can be flagged and discarded per the logic diagram in this project's start ([located here](../media/golden_sparrow.png)

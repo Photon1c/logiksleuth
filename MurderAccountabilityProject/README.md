@@ -11,7 +11,7 @@ They aim to aid in the analysis of the murder accountability project's datasets.
 <details><summary>Project Map</summary>
 
 Protecting PII (Personally Identifiable Information) is done by implementing strict and rigosour filters that are run throughout different stages.
-
+```mermaid
 flowchart TD
   A["Source Intake (UCR, MAP, court dockets, news, FOIA)"] --> B{Case Status?}
   B -->|Closed/Convicted| C["PII Scan (regex + heuristics)"]
@@ -47,3 +47,4 @@ flowchart TD
 
 
 </details>
+```

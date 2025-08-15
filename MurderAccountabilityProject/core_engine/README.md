@@ -8,9 +8,9 @@ Any limitations of this project is largely due to working outside of paywalls an
 
 🕵 Instructions
 
-First, ingest the proper data inputs. If you do not have any available, use ```mock_data_generator.py```.
+First, ingest the proper data inputs. If you do not have any available, run ```python mock_data_generator.py```.
 
-Once input data has been created or saved in /data folder, run ```ucr_converter.py``` to convert incident codes.
+Once input data has been created or saved in /data folder, run ```python ucr_converter.py``` to convert incident codes.
 
 Then, run ```python ingest_quickcheck.py data/ucr_incidents.jsonl```, this should give output similar to the output below:
 
@@ -31,4 +31,4 @@ Quarantine:      0
 
 ```
 
-These scripts essentially aim to "clean" and weed out PII from out data set. The UCR dataset candidates meet all requirements to proceed with analysis. Future entries can be flagged and discarded per the logic diagram in this project's start ([located here](../media/golden_sparrow.png))
+These scripts essentially aim to "clean" and weed out PII from the starting data set. The UCR dataset candidates meet all requirements to proceed with analysis. Future entries can be flagged and discarded per the logic diagram in this project's start ([located here](../media/golden_sparrow.png))

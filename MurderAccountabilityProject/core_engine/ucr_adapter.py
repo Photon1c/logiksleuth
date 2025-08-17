@@ -58,6 +58,15 @@ def main():
                 "geo_precision": "county"         # coarse by design
             }
 
+            # just before the emit loops in main()
+            if open_cnt or clr:
+                # quick pulse log; comment out later
+                if open_cnt and clr:
+                    pass  # both present
+                # print(f"YEAR={year} COUNTY={county} MRD={mrd} CLR={clr} OPEN={open_cnt}")
+
+
+
             # Emit CLOSED incidents (CLR)
             for _ in range(clr):
                 rec = dict(base)

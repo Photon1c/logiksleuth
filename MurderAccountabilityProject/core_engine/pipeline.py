@@ -1,3 +1,14 @@
+"""
+Pipeline
+Main ingestion and routing pipeline used by CLI tools and tests.
+Given a record, determines status, scans PII, minimalizes ACTIVE records,
+applies rule-first routing (and optional LLM check), and sends to a sink:
+  - Research Lake (default)
+  - Restricted Vault (review)
+  - Quarantine (high PII risk)
+
+Import `ingest_record(rec)` to process one record.
+"""
 # --- AFTER (drop in) ---
 from status_resolver import resolve_status
 from pii import scan_pii

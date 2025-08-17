@@ -1,5 +1,16 @@
-# ingest_quickcheck.py
-# Quick JSONL ingest → prints sink counts & a few samples.
+"""
+Ingest Quickcheck
+Quick JSONL ingest to exercise the pipeline and print sink counts and samples.
+
+Examples (PowerShell):
+  # Zero-spend preflight
+  $env:LLM_MODE='off'
+  python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --estimate-llm --estimate-only
+
+  # Safe ingest with progress
+  $env:LLM_MODE='off'
+  python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --show 2 --top-restricted 5 --heartbeat 1000
+"""
 
 import argparse, json
 from pathlib import Path

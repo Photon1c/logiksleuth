@@ -1,3 +1,9 @@
+"""
+Status Resolver
+Return 'closed' | 'active' | 'unknown' for a record using simple heuristics.
+Prefer explicit `case_status` when present; otherwise fall back to keywords.
+"""
+
 def resolve_status(rec) -> str:
     """
     Return 'closed' | 'active' | 'unknown'.

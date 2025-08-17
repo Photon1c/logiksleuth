@@ -1,5 +1,16 @@
-# eagle_scanner.py
-# Scan ACTIVE records in a JSONL to find top states/counties for watchlists.
+"""
+Eagle Scanner
+Scan ACTIVE records in a JSONL to find recent hotspots by state and county.
+
+Usage (PowerShell):
+  python -m eagle_scanner .\data\ucr_incidents.sample.jsonl --recent-year 2015 --top 15
+
+Outputs top ACTIVE states/counties since the given year and prints
+copy-paste environment suggestions for:
+  - CLASSIFIER_FORCE_REVIEW_STATES
+  - CLASSIFIER_WATCHLIST_COUNTIES
+  - CLASSIFIER_RECENT_YEAR
+"""
 
 import json, argparse
 from collections import Counter

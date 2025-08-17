@@ -139,6 +139,21 @@ python -m pytest -q
 
 ## Troubleshooting
 
+## Eagle Scanner (watchlist discovery)
+
+Find ACTIVE hotspots by state/county to seed watchlists:
+
+```powershell
+python -m eagle_scanner .\data\ucr_incidents.sample.jsonl --recent-year 2015 --top 15
+```
+
+It prints top states and counties since the given year and shows copy‑paste
+environment suggestions for:
+- `CLASSIFIER_FORCE_REVIEW_STATES`
+- `CLASSIFIER_WATCHLIST_COUNTIES`
+- `CLASSIFIER_RECENT_YEAR`
+
+
 - 404 Not Found from OpenAI → model name invalid; set a valid `LLM_CLASSIFIER_MODEL` (e.g., `gpt-5`)
 - 401 Unauthorized → check `OPENAI_API_KEY`
 - Budget exceeded → either increase `LLM_MAX_TOKENS` or remove `.llm_budget.log`

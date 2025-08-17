@@ -1,6 +1,13 @@
-# ucr_adapter.py
-# Convert aggregate UCR rows -> per-incident JSONL for our pipeline.
-# Input CSV columns: ORI,Name,YEAR,MRD,CLR,Source,State,County,Agency
+"""
+UCR Adapter
+Convert aggregate UCR rows into per-incident JSONL for the pipeline.
+
+Input CSV columns: ORI,Name,YEAR,MRD,CLR,Source,State,County,Agency
+
+Usage (PowerShell):
+  python -m ucr_adapter
+Writes to data/ucr_incidents.jsonl by default.
+"""
 
 import csv, json, math
 from pathlib import Path

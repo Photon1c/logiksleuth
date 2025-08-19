@@ -2,9 +2,15 @@
 
 *Now audited with Cursor and Cloudflare agents 🤖☁️*  
 
+8.17.25 Update: The [Murder Accountability Project](https://github.com/Photon1c/logiksleuth/tree/main/MurderAccountabilityProject) fork with add-ons is now available. It provides a basic CLI to interfact with the FBI's UCR datasets spanning decades, filtering cases by closed, active, or other customizable statuses.   
+
+# /examples 
+
+The /examples directory contains simple starting scripts that use well-known board games to establish a logic structure.
+
 20Qs, CLUE and Guess Who all rolled up into one suite of scripts aimed at deploying a process of elimination to a host of models, check back later for updates as this project grows. Most of the files associated with this project have not been made public yet since they are in development.
 
-8.17.25 Update: The [Murder Accountability Project](https://github.com/Photon1c/logiksleuth/tree/main/MurderAccountabilityProject) fork with add-ons is now available. It provides a basic CLI to interfact with the FBI's UCR datasets spanning decades, filtering cases by closed, active, or other customizable statuses.   
+
 
 
 # Introduction: Now in Development

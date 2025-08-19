@@ -69,6 +69,8 @@ def ingest_record(rec: dict) -> str:
                 to_quarantine(rec2)
                 return "quarantine"
             else:
+                # Ensure access label matches sink
+                rec2["access"] = "restricted"
                 to_restricted(rec2)
                 return "restricted"
 

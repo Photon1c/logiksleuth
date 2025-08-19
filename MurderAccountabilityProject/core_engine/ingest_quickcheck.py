@@ -1,18 +1,18 @@
-"""
+r"""
 Ingest Quickcheck
 Quick JSONL ingest to exercise the pipeline and print sink counts and samples.
 
 Examples (PowerShell):
   # Zero-spend preflight
   $env:LLM_MODE='off'
-  python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --estimate-llm --estimate-only
+  python -m ingest_quickcheck .\\data\\ucr_incidents.sample.jsonl --estimate-llm --estimate-only
 
   # Safe ingest with progress
   $env:LLM_MODE='off'
-  python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --show 2 --top-restricted 5 --heartbeat 1000
+  python -m ingest_quickcheck .\\data\\ucr_incidents.sample.jsonl --show 2 --top-restricted 5 --heartbeat 1000
 """
-
 import argparse, json
+import time
 from pathlib import Path
 
 from pipeline import ingest_record
@@ -39,6 +39,10 @@ def main():
     ap = argparse.ArgumentParser(
         description="Ingest JSONL and summarize sinks.")
     ap.add_argument("jsonl", type=Path, help="Path to mock_records.jsonl")
+    ap.add_argument("--recent-year", type=int, help="Alias of --from-year")
+    ap.add_argument("--from-year", type=int, help="Inclusive lower bound (e.g., 2015)")
+    ap.add_argument("--to-year", type=int, help="Inclusive upper bound (e.g., 2020)")
+    ap.add_argument("--year-range", type=str, help="Shorthand 'YYYY-YYYY' (e.g., 2010-2015)")
     ap.add_argument("--show", type=int, default=3,
                     help="Show N examples per sink (default: 3)")
     ap.add_argument("--top-restricted", type=int, default=0,
@@ -56,9 +60,21 @@ def main():
     args = ap.parse_args()
 
     if not args.jsonl.exists():
-        raise SystemExit(f"Not found: {args.jsonl}")
+        print(f"Config error: Not found: {args.jsonl}")
+        raise SystemExit(78)
 
     reset_storage()
+
+    def resolve_year_bounds(args):
+        lo = hi = None
+        if getattr(args, "year_range", None):
+            a, b = args.year_range.split("-", 1)
+            lo, hi = (int(a), int(b))
+        lo = lo if lo is not None else (getattr(args, "from_year", None) or getattr(args, "recent_year", None))
+        hi = hi if hi is not None else getattr(args, "to_year", None)
+        return lo, hi
+
+    year_lo, year_hi = resolve_year_bounds(args)
 
     # Announce LLM mode and configuration
     if LLM_ENABLED:
@@ -79,6 +95,11 @@ def main():
             status = resolve_status(rec)
             if status == "active":
                 est_active += 1
+                y = rec.get("year") or int(str(rec.get("date") or "0")[:4] or 0)
+                if year_lo is not None and y < year_lo: 
+                    continue
+                if year_hi is not None and y > year_hi:
+                    continue
                 rec2 = minimal_active(rec)
                 rule, why = _rule_based(rec2)
                 if rule:
@@ -108,9 +129,15 @@ def main():
             return
 
     total = 0
+    start_time = time.time()
     for idx, rec in enumerate(read_jsonl(args.jsonl), start=1):
         try:
             total += 1
+            y = rec.get("year") or int(str(rec.get("date") or "0")[:4] or 0)
+            if year_lo is not None and y < year_lo:
+                continue
+            if year_hi is not None and y > year_hi:
+                continue
             ingest_record(rec)
             if args.heartbeat and (idx % args.heartbeat == 0):
                 print(f"... processed {idx} records")
@@ -121,7 +148,7 @@ def main():
                 import traceback
                 print(f"Bisection stop at line {idx} due to: {type(e).__name__}: {e}")
                 traceback.print_exc()
-                raise SystemExit(1)
+                raise SystemExit(2)
             else:
                 raise
 
@@ -130,6 +157,8 @@ def main():
     print(f"Research Lake:   {len(rl)}")
     print(f"Restricted Vault:{len(rv)}")
     print(f"Quarantine:      {len(q)}")
+    elapsed = max(0.000001, time.time() - start_time)
+    print(f"Processed {total:,} in {elapsed:.1f}s (~{(total/elapsed):,.0f} rec/s)")
 
     def show_samples(name, items):
         print(f"\n== {name} (showing up to {args.show}) ==")

@@ -27,8 +27,33 @@ scripts ready to be released publicly are published.
 
 Update June 2023: The citations_generator script can be used to maintain a reliable database of sources to use in bibliographies.
 
+Update August 2025: The Murder Accountability Add-On Fork has a CLI used to traverse the sea of data available through the project. It is in active development as dashboards and report generators are added to the future version pipeline. Check back ask this repository is updated!
+
 ![logo](logiksleuth.png)
 <br>
+
+<details open>
+<summary>Enhanced Project Vision</summary>
+As Cursor and Cloudflare agents behind to paratroop down and upgrade this repository, the following vision has been considered an interesting challenge to take on as this meta project takes shape:
+
+"Criticality of Eruptive Events: Applying Reflexive Engine Dynamics to Reinforcement Learning Algorithms"
+
+Description
+
+This work explores how eruptive events—sudden ruptures in complex systems such as markets, ecosystems, or social structures—can be modeled through reflexive engine dynamics and integrated into reinforcement learning (RL) frameworks. By treating volatility and feedback loops as criticality thresholds rather than noise, the study aims to:
+
+Identify eruption points where small perturbations cascade into large-scale systemic shifts.
+
+Map reflexive feedback cycles (self-reinforcing or self-correcting) into the state-action space of RL agents.
+
+Develop algorithms that not only adapt to environmental dynamics but also anticipate rupture zones and adjust strategies preemptively.
+
+The result is a methodology that equips RL systems with criticality awareness—an ability to recognize when they are approaching points of instability and to leverage or avoid them. Applications range from financial market modeling and risk defense systems, to resilience planning in ecological and infrastructural networks, and to adaptive AI systems capable of self-regulation under stress.  
+
+</details>
+
+  
+</details>
 
 <details open>
 <summary>References</summary>

@@ -1,6 +1,6 @@
 # 🔍 Logiksleuth 🔎 
 
-*Now audited with Cursor and Cloudlare agents 🤖☁️*  
+*Now audited with Cursor and Cloudflare agents 🤖☁️*  
 
 20Qs, CLUE and Guess Who all rolled up into one suite of scripts aimed at deploying a process of elimination to a host of models, check back later for updates as this project grows. Most of the files associated with this project have not been made public yet since they are in development.
 

@@ -1,7 +1,10 @@
+```
 $env:LLM_MODE='off'
->> python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --estimate-llm --estimate-only
+python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --estimate-llm --estimate-only
 2025-08-17 16:07:01,223 INFO LLM classifier mode=off (no token spend)
 LLM classifier mode=off: no token spend
+```
+Output:  
 
 Preflight estimate (no LLM calls made):
   total records: 5000
@@ -10,9 +13,14 @@ Preflight estimate (no LLM calls made):
   rule-trigger reasons:
     rules->watchlist_county: 108
 
+```
  $env:LLM_MODE='off'
->> python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --max-records 500 --heartbeat 100 --bisect --show 2 --top-restricted 5
+python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --max-records 500 --heartbeat 100 --bisect --show 2 --top-restricted 5
 2025-08-17 16:07:23,800 INFO LLM classifier mode=off (no token spend)
+```
+
+Output:  
+
 LLM classifier mode=off: no token spend
 ... processed 100 records
 ... processed 200 records
@@ -43,8 +51,13 @@ Breakdown (Research Lake):
   linkable=True:  332
   linkable=False: 168
 
- $env:LLM_MODE='off'
->> python -m ingest_quickcheck .\data\ucr_incidents.jsonl --show 3 --top-restricted 10 --heartbeat 10000
+```
+$env:LLM_MODE='off'
+python -m ingest_quickcheck .\data\ucr_incidents.jsonl --show 3 --top-restricted 10 --heartbeat 10000
+```
+Output:  
+
+
 2025-08-18 18:51:11,247 INFO LLM classifier mode=off (no token spend)
 LLM classifier mode=off: no token spend
 ... processed 10000 records
@@ -210,8 +223,10 @@ Breakdown (Research Lake):
   linkable=True:  685953
   linkable=False: 345254
 
+```
 $env:LLM_MODE='off'
->> python -m ingest_quickcheck .\data\ucr_incidents.jsonl --from-year 2015 --show 3 --top-restricted 15 --heartbeat 10000
+python -m ingest_quickcheck .\data\ucr_incidents.jsonl --from-year 2015 --show 3 --top-restricted 15 --heartbeat 10000
+```
 2025-08-18 21:16:53,664 INFO LLM classifier mode=off (no token spend)
 LLM classifier mode=off: no token spend
 ... processed 130000 records
@@ -343,11 +358,17 @@ Top counties (ACTIVE):
   Duval                         543
   Jackson                       534
 
+```
 set CLASSIFIER_FORCE_REVIEW_STATES=California,Texas,Illinois,Florida,Ohio,Pennsylvania,Michigan,Louisiana,Georgia,North Carolina,Tennessee,Maryland,Missouri,Indiana,New York,Virginia,Alabama,South Carolina,Arizona,New Mexico
 set CLASSIFIER_WATCHLIST_COUNTIES=Cook,Los Angeles,Philadelphia,Harris,Jefferson,Baltimore city,Wayne,Shelby
 set CLASSIFIER_RECENT_YEAR=2018
-
+```
+```
 python -m ingest_quickcheck .\data\ucr_incidents.jsonl --from-year 2015 --show 1 --top-restricted 10
+```
+
+Output:  
+
 2025-08-18 21:21:55,268 INFO LLM classifier mode=off (no token spend)
 LLM classifier mode=off: no token spend
 
@@ -403,7 +424,13 @@ Breakdown (Research Lake):
   closed: 93882
   linkable=True:  93882
   linkable=False: 57509
-PS D:\SereneOcean\csint_suite\golden_sparrow> python -m ingest_quickcheck .\data\ucr_incidents.jsonl --from-year 2023 --estimate-llm --estimate-only
+
+```
+python -m ingest_quickcheck .\data\ucr_incidents.jsonl --from-year 2023 --estimate-llm --estimate-only
+```
+
+Output:  
+
 2025-08-18 21:22:37,114 INFO LLM classifier mode=off (no token spend)
 LLM classifier mode=off: no token spend
 
@@ -414,6 +441,7 @@ Preflight estimate (no LLM calls made):
   rule-trigger reasons:
     rules->watchlist_county: 1782
 
+```
 ##LLM Mode On
 #Tiny-budget LLM sanity (observe usage logs, then stop)
 $env:LLM_MODE='on'
@@ -422,4 +450,4 @@ $env:LLM_MAX_TOKENS='200'
 Remove-Item .llm_budget.log -ErrorAction SilentlyContinue
 python -m ingest_quickcheck .\data\ucr_incidents.sample.jsonl --max-records 200 --show 1 --heartbeat 50
 # Expect: usage totals printed; budget enforced. Switch back to off after.
-
+```

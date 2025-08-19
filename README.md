@@ -33,7 +33,8 @@ Update August 2025: The Murder Accountability Add-On Fork has a CLI used to trav
 <br>
 
 <details open>
-<summary>Enhanced Project Vision</summary>
+<summary>Enhanced Project Vision</summary>  
+  
 As Cursor and Cloudflare agents behind to paratroop down and upgrade this repository, the following vision has been considered an interesting challenge to take on as this meta project takes shape:
 
 "Criticality of Eruptive Events: Applying Reflexive Engine Dynamics to Reinforcement Learning Algorithms"

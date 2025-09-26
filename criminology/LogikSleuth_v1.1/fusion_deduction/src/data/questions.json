@@ -1,0 +1,6 @@
+[
+  {"id": "glasses", "text": "Does the suspect wear glasses?", "type": "suspect", "predicate": {"fn": "has_glasses", "args": []}},
+  {"id": "hair_blonde", "text": "Is the suspect's hair blonde?", "type": "suspect", "predicate": {"fn": "hair_color_is", "args": ["blonde"]}},
+  {"id": "prof_pilot", "text": "Is the suspect a pilot?", "type": "suspect", "predicate": {"fn": "profession_in", "args": [["pilot"]]}}
+]
+

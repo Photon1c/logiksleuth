@@ -1,0 +1,12 @@
+{
+  "screen": {"w": 1280, "h": 800, "fps": 60},
+  "board": {"size": 10, "evidence_nodes": 3},
+  "limits": {"questions_per_round": 20, "wrong_accuse_lock": 2},
+  "ai": {"accuse_threshold": 0.85, "probe_explore_weight": 0.35},
+  "dev_seed": 1337,
+  "manhunt": {
+    "enabled": true,
+    "data_file": "data/SHR65_23.csv"
+  }
+}
+

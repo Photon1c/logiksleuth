@@ -1,0 +1,15 @@
+[
+  {"name": "Alice", "traits": {"glasses": true, "hair_color": "blonde", "profession": "doctor"}},
+  {"name": "Bob", "traits": {"glasses": false, "hair_color": "black", "profession": "pilot"}},
+  {"name": "Cara", "traits": {"glasses": false, "hair_color": "red", "profession": "artist"}},
+  {"name": "Drew", "traits": {"glasses": true, "hair_color": "brown", "profession": "chef"}},
+  {"name": "Evan", "traits": {"glasses": false, "hair_color": "blonde", "profession": "engineer"}},
+  {"name": "Fay", "traits": {"glasses": true, "hair_color": "black", "profession": "lawyer"}},
+  {"name": "Gus", "traits": {"glasses": false, "hair_color": "brown", "profession": "teacher"}},
+  {"name": "Hana", "traits": {"glasses": false, "hair_color": "blonde", "profession": "nurse"}},
+  {"name": "Ivan", "traits": {"glasses": true, "hair_color": "red", "profession": "scientist"}},
+  {"name": "Jade", "traits": {"glasses": false, "hair_color": "black", "profession": "pilot"}},
+  {"name": "Kian", "traits": {"glasses": true, "hair_color": "brown", "profession": "doctor"}},
+  {"name": "Lia", "traits": {"glasses": false, "hair_color": "red", "profession": "artist"}}
+]
+

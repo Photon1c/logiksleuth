@@ -1,0 +1,11 @@
+Transition,Count
+Probation->Violation(Reintake),8261
+Outcome->Plea,4439
+Arrest->Bond,3036
+Arrest->NGO,1599
+Any->Handoff,1096
+Outcome->Trial,933
+Outcome->Dismiss,924
+Arrest->CashBail,764
+Arrest->OwnRec,595
+Arrest->JailWait,302

@@ -16,7 +16,7 @@ def parse_args():
     p.add_argument("--year-max", type=int, default=DEFAULTS["year_max"])
     p.add_argument("--vic-age-min", type=int)
     p.add_argument("--vic-age-max", type=int)
-    p.add_argument("--vic-sex", type=str, choices=["Male","Female"])
+    p.add_argument("--vic-sex", type=str)
     p.add_argument("--weapon", action="append", help="repeat for multiple (e.g., --weapon Strangulation)")
     p.add_argument("--solved", type=int, choices=[0,1])
     # add inside parse_args()
@@ -43,7 +43,6 @@ def apply_preset(args):
     
 
 def main():
-    args = parse_args()
     args = parse_args()
     if args.preset:
         apply_preset(args)

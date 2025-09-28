@@ -1,14 +1,16 @@
 from pathlib import Path
 
-DATA_CSV = Path("C:/workingcauldron/brewery/criminology/logicsleuth032/fusion_deduction/data/SHR65_23.csv")  # <-- set your path
+DATA_CSV = Path("D:\SereneOcean\csint_suite\criminology\inputs\criminology\SHR65_23.csv")  # <-- set your path
 # If you have a local file, set it here; otherwise leave as None
-COUNTY_GEOJSON = "C:/workingcauldron/geo/counties-10m.json"  # or None
+COUNTY_GEOJSON = "D:\SereneOcean\csint_suite\criminology\inputs\criminology\counties-10m.json"  # or None
 
 OUTPUT_DIR = Path("./output")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# Optional: local GeoJSON for US counties if you have one (kept None to rely on Plotly built-ins)
-COUNTY_GEOJSON = None
+# Optional: prefer local GeoJSON if the path exists; otherwise None to use Plotly default
+from os import path as _os_path
+if isinstance(COUNTY_GEOJSON, str) and not _os_path.exists(COUNTY_GEOJSON):
+    COUNTY_GEOJSON = None
 
 DEFAULTS = {
     "state": None,           # e.g., "CO"

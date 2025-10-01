@@ -5,6 +5,7 @@
 #   python map_cluster.py input.csv --no-filter  # just build groups & aggregates
 
 import argparse, re, os
+from reporting import write_report
 import pandas as pd
 import hashlib  # add
 # add near imports/helpers
@@ -185,6 +186,8 @@ def main():
     ap.add_argument('--dump-msa', help='Exact MSA_LABEL to export (e.g., "Chicago-Naperville-Joliet, IL-IN-WI").')
     ap.add_argument('--dump-weapon', help='Exact WEAPON_LABEL to export (e.g., "Weapon Not Reported").')
     ap.add_argument('--dump-out', default='out/dump_cases.csv', help='CSV path to write case-level rows.')
+    ap.add_argument('--per-ori', action='store_true',
+                    help='When dumping cases, also write per-ORI summary CSV for the matched cluster.')
     # add with your other args
     ap.add_argument('--relcirc', action='store_true',
                     help='Add Relationship/Circumstance unknown rates & top category per cluster.')
@@ -195,11 +198,55 @@ def main():
     # with your other args
     ap.add_argument('--min-decade', type=int, default=0,
                     help='Keep only cases with DECADE >= this (e.g., 2000).')
+    
+    # reporting flags
+    try:
+        ap.add_argument('--report', action=argparse.BooleanOptionalAction, default=True,
+                        help='Write a report file (table of top-N clusters). On by default.')
+    except Exception:
+        ap.add_argument('--report', dest='report', action='store_true', default=True,
+                        help='Write a report file (table of top-N clusters). On by default.')
+        ap.add_argument('--no-report', dest='report', action='store_false')
+    ap.add_argument('--report-format', choices=['md','html','csv'], default='md',
+                    help='Report file format: md (markdown), html, or csv.')
+    ap.add_argument('--report-file', default=None,
+                    help='Output path; default is <outdir>/report_<group>.{md|html|csv}.')
+    ap.add_argument('--report-title', default='Homicide Clearance Risk Scan',
+                    help='Title shown at top of the report.')
+    
+    # presets for quick runs
+    ap.add_argument('--preset', choices=['modern_female','strict_modern'], help='Apply preset flags for common scans.')
+    # map passthrough
+    ap.add_argument('--include-map', action='store_true', default=True,
+                    help='Embed/link a per-ORI map in the report when possible.')
+    ap.add_argument('--per-ori-file', default=None,
+                    help='Path to dump_cases_per_ori.csv to use for the map (defaults to <outdir>/dump_cases_per_ori.csv).')
                     
 
+    ap.add_argument('--msa-only', default=None,
+                    help='Restrict analysis to a single MSA label (exact match). Only applies when --group msa.')
 
 
     args = ap.parse_args()
+
+    # apply presets (explicit flags may be overridden by preset for simplicity)
+    if args.preset:
+        if args.preset == 'modern_female':
+            args.group = 'msa'
+            args.solved_source = 'field'
+            args.focus_sex = 'female'
+            args.min_decade = 2010
+            args.min_total = 15
+            args.threshold = 0.33
+            args.relcirc = True
+        elif args.preset == 'strict_modern':
+            args.group = 'msa'
+            args.solved_source = 'field'
+            args.focus_sex = 'female'
+            args.min_decade = 2010
+            args.min_total = 20
+            args.threshold = 0.30
+            args.relcirc = True
 
     os.makedirs(args.outdir, exist_ok=True)
     df = pd.read_csv(args.csv, dtype=str, keep_default_na=False).replace({'': pd.NA})
@@ -223,6 +270,18 @@ def main():
     df['MSA_LABEL']    = df['MSA'].astype(str).str.strip()
     df['WEAPON_LABEL'] = df['Weapon'].astype(str).str.strip()
     
+    if args.msa_only:
+        if args.group != 'msa':
+            print("[Warn] --msa-only ignored because --group is not 'msa'")
+        else:
+            # make sure we compare against the label, trimmed
+            if 'MSA_LABEL' not in df.columns:
+                df['MSA_LABEL'] = df['MSA'].astype(str).str.strip()
+            target_msa = args.msa_only.strip()
+            df['MSA_LABEL'] = df['MSA_LABEL'].astype(str).str.strip()
+            df = df[df['MSA_LABEL'] == target_msa].copy()
+            print(f"[Filter] MSA_ONLY = '{target_msa}': {len(df)} rows remain")
+
         
     if args.min_decade:
         mindec = int(args.min_decade) - (int(args.min_decade) % 10)  # floor to decade
@@ -261,6 +320,23 @@ def main():
         os.makedirs(os.path.dirname(args.dump_out), exist_ok=True)
         q.to_csv(args.dump_out, index=False)
         print(f"[Dump] {len(q)} case rows -> {args.dump_out}")
+        # Optional per-ORI summary sidecar for quick agency drivers view
+        if args.per_ori:
+            if 'Ori' in q.columns:
+                # per-ORI summary (add REL/CIRC unknown rates)
+                per_ori = (q.groupby(['Ori','Agency'], dropna=False)
+                             .agg(TOTAL=('SOLVED','count'),
+                                  SOLVED=('SOLVED','sum'),
+                                  REL_UNK_RATE=('Relationship', _unknown_rate),
+                                  CIRC_UNK_RATE=('Circumstance', _unknown_rate))
+                             .reset_index())
+                per_ori['PERCENT']  = per_ori['SOLVED'] / per_ori['TOTAL']
+                per_ori['UNSOLVED'] = per_ori['TOTAL'] - per_ori['SOLVED']
+                side_path = os.path.join(args.outdir, 'dump_cases_per_ori.csv')
+                per_ori.sort_values(['UNSOLVED','TOTAL'], ascending=[False, False]).to_csv(side_path, index=False)
+                print("[Dump] per-ORI summary ->", side_path)
+            else:
+                print("[Warn] --per-ori requested but 'Ori' column not found in data.")
     
     
     
@@ -289,11 +365,49 @@ def main():
     for c in ['DECADE','REL_UNK_RATE','REL_TOP1','CIRC_UNK_RATE','CIRC_TOP1']:
         if c in view.columns: cols.append(c)
     print(view[[c for c in cols if c in view.columns]].head(args.top).to_string(index=False))   
+    
+    # Write human-readable report (runs even if view is empty)
+    if args.report:
+        report_path = write_report(
+            view=view,
+            group=args.group,
+            outdir=args.outdir,
+            fmt=args.report_format,
+            filepath=args.report_file,
+            title=args.report_title,
+            top=args.top,
+            run_params={
+                'csv': args.csv,
+                'group': args.group,
+                'focus_sex': args.focus_sex,
+                'threshold': args.threshold,
+                'min_total': args.min_total,
+                'min_decade': getattr(args, 'min_decade', None),
+                'by_decade': args.by_decade,
+                'relcirc': args.relcirc,
+                'min_known_rel': getattr(args, 'min_known_rel', None),
+                'solved_source': args.solved_source,
+                'msa_only': args.msa_only,  # <-- add this
+            }
+            ,
+            per_ori_csv=args.per_ori_file,
+            include_map=args.include_map
+        )
+        print(f"[Report] {report_path}")
         
     
     
     if view.empty:
         print("[Per-weapon top (≤3 each)]\n(no rows after filtering)")
+        # suggest loosening knobs
+        hints = []
+        if args.threshold < 0.33:
+            hints.append("--threshold 0.33")
+        if args.min_total > 15:
+            hints.append("--min-total 15")
+        if not hints:
+            hints = ["--threshold 0.33", "--min-total 15"]
+        print("Hint: try " + " or ".join(hints))
         return
         
     if args.group == 'msa':

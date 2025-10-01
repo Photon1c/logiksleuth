@@ -162,6 +162,9 @@ for %t in (0.25 0.28 0.30 0.33) do python map_cluster.py SHR.csv --group msa --s
 | `--report-file`                             | Output path override                             | e.g., `out/custom_report.csv`                   |
 | `--report-title`                            | Title shown at top of the report                 | string                                          |
 | `--preset`                                  | Apply quick‑start settings                       | `modern_female`, `strict_modern`                |
+| `--msa-only`                                | Restrict analysis to a single MSA label          | exact `MSA_LABEL` string                        |
+| `--include-map`                             | Embed/link a per‑ORI map in the report           | toggle                                          |
+| `--per-ori-file`                            | Per‑ORI CSV path for map generation              | defaults to `out/dump_cases_per_ori.csv`        |
 
 ---
 
@@ -227,6 +230,16 @@ python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex
 python map_cluster.py SHR.csv --group msa --solved-source field --focus-sex female ^
   --relcirc --min-decade 2000 --min-total 15 --threshold 0.33 --top 20 --outdir out
 ```
+
+---
+
+## 12) Code layout (modules)
+
+* `adv_crim/map_cluster.py`: Main CLI entry and pipeline (grouping, filtering, case dumps, presets).
+* `adv_crim/reporting.py`: Report writer (`write_report`) for Markdown/HTML/CSV, insights, dump shortcuts, optional map embed/link.
+* `adv_crim/insights.py`: Anomaly score computation and concise Analyst Insights renderers (MD/HTML).
+* `adv_crim/mapviz.py`: Optional Folium map builder from `dump_cases_per_ori.csv` with light ORI→geo hints.
+* Tests: `tests/test_helpers.py`, `tests/test_reporting.py`.
 
 ---
 

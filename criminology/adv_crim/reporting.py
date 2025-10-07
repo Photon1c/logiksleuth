@@ -50,6 +50,14 @@ def _style_html_table(df: pd.DataFrame) -> str:
                 return out
             sty = sty.apply(band, subset=['PERCENT'])
 
+        # Hide index for cleaner display (try modern then legacy API)
+        try:
+            sty = sty.hide(axis='index')
+        except Exception:
+            try:
+                sty = sty.hide_index()
+            except Exception:
+                pass
         return sty.to_html()
     except Exception:
         return df.to_html(index=False)
@@ -91,7 +99,15 @@ def write_report(view: pd.DataFrame, group: str, outdir: str, fmt: str='md',
     opt_cols  = ['DECADE', loc_col, 'REL_UNK_RATE', 'REL_TOP1', 'CIRC_UNK_RATE', 'CIRC_TOP1', 'REPORT_GAP_IDX']
     cols = [c for c in (base_cols + opt_cols) if c and c in view.columns]
 
-    head = view[cols].head(top) if len(cols) else view.head(top)
+    # Sort by least solved percentage ascending, tie-break by UNSOLVED descending
+    if 'PERCENT' in view.columns:
+        sort_cols = ['PERCENT'] + (['UNSOLVED'] if 'UNSOLVED' in view.columns else [])
+        sort_asc  = [True] + ([False] if 'UNSOLVED' in view.columns else [])
+        sorted_view = view.sort_values(sort_cols, ascending=sort_asc, na_position='last')
+    else:
+        sorted_view = view
+
+    head = sorted_view[cols].head(top) if len(cols) else sorted_view.head(top)
     disp = _format_display(head)
 
     ts = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -100,6 +116,14 @@ def write_report(view: pd.DataFrame, group: str, outdir: str, fmt: str='md',
                     f"**Generated:** {ts}",
                     "**Filters:** " + ", ".join(f"{k}={v}" for k,v in (run_params or {}).items() if v not in [None, False, '']),
                     ""]
+    # Clean HTML header for HTML outputs
+    header_html = (
+        f"<h1>{title}</h1>"
+        f"<p><strong>Generated:</strong> {ts}</p>"
+        f"<p><strong>Filters:</strong> "
+        + ", ".join(f"{k}={v}" for k,v in (run_params or {}).items() if v not in [None, False, ''])
+        + "</p>"
+    )
 
     # attempt to build map (optional)
     map_path = None
@@ -112,16 +136,23 @@ def write_report(view: pd.DataFrame, group: str, outdir: str, fmt: str='md',
         except Exception:
             html_path = filepath[:-2] + "html" if filepath.endswith(".md") else filepath + ".html"
             html_table = _style_html_table(head)
+            # Use relative forward-slashed path for iframe
+            map_src = None
+            if map_path:
+                try:
+                    map_src = os.path.relpath(map_path, start=os.path.dirname(html_path)).replace("\\", "/")
+                except Exception:
+                    map_src = map_path.replace("\\", "/")
             with open(html_path, 'w', encoding='utf-8') as f:
-                f.write("<br/>\n".join(header_lines) + html_table)
+                f.write(header_html + html_table)
+                if map_src:
+                    f.write(f'<h2>Map</h2><iframe src="{map_src}" width="100%" height="520" frameborder="0"></iframe>')
+                else:
+                    f.write('<h2>Map</h2><p><em>Map not generated (no folium or no coordinates).</em></p>')
                 f.write("<h2>Analyst Insights</h2>")
                 f.write(insights_html(head, group, top=min(3, len(head))))
                 md_cmds, html_cmds = _build_dump_commands(head, group, run_params or {}, max_rows=3)
                 f.write(html_cmds)
-                if map_path:
-                    f.write(f'<h2>Map</h2><iframe src="{map_path}" width="100%" height="520" frameborder="0"></iframe>')
-                else:
-                    f.write('<h2>Map</h2><p><em>Map not generated (no folium or no coordinates).</em></p>')
             return html_path
         md_text = "\n".join(header_lines) + "\n" + body + "\n\n## Analyst Insights\n"
         md_text += insights_md(head, group, top=min(3, len(head))) or "_No insights available for the current slice._"
@@ -129,7 +160,11 @@ def write_report(view: pd.DataFrame, group: str, outdir: str, fmt: str='md',
         if md_cmds:
             md_text += "\n\n" + md_cmds + "\n"
         if map_path:
-            md_text += f"\n\n## Map\nInteractive per-ORI map: **[{os.path.basename(map_path)}]({map_path})**"
+            try:
+                map_rel_md = os.path.relpath(map_path, start=os.path.dirname(filepath)).replace("\\", "/")
+            except Exception:
+                map_rel_md = map_path.replace("\\", "/")
+            md_text += f"\n\n## Map\nInteractive per-ORI map: **[{os.path.basename(map_rel_md)}]({map_rel_md})**"
         else:
             md_text += "\n\n## Map\n_Map not generated (no folium or no coordinates)._"
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -138,14 +173,21 @@ def write_report(view: pd.DataFrame, group: str, outdir: str, fmt: str='md',
         try:
             html_mirror = os.path.splitext(filepath)[0] + ".html"
             html_table = _style_html_table(head)
-            html_full = "<br/>\n".join(header_lines) + html_table
-            html_full += "<h2>Analyst Insights</h2>" + insights_html(head, group, top=min(3, len(head)))
+            # relative forward-slashed map src
+            map_src = None
+            if map_path:
+                try:
+                    map_src = os.path.relpath(map_path, start=os.path.dirname(html_mirror)).replace("\\", "/")
+                except Exception:
+                    map_src = map_path.replace("\\", "/")
+            html_full = header_html + html_table
             if html_cmds:
                 html_full += html_cmds
-            if map_path:
-                html_full += f'<h2>Map</h2><iframe src="{map_path}" width="100%" height="520" frameborder="0"></iframe>'
+            if map_src:
+                html_full += f'<h2>Map</h2><iframe src="{map_src}" width="100%" height="520" frameborder="0"></iframe>'
             else:
                 html_full += "<h2>Map</h2><p><em>Map not generated (no folium or no coordinates).</em></p>"
+            html_full += "<h2>Analyst Insights</h2>" + insights_html(head, group, top=min(3, len(head)))
             with open(html_mirror, 'w', encoding='utf-8') as h:
                 h.write(html_full)
         except Exception:
@@ -154,12 +196,19 @@ def write_report(view: pd.DataFrame, group: str, outdir: str, fmt: str='md',
 
     elif fmt == 'html':
         html_table = _style_html_table(head)
-        html = "<br/>\n".join(header_lines) + html_table
-        html += "<h2>Analyst Insights</h2>" + insights_html(head, group, top=min(3, len(head)))
+        # relative forward-slashed map src
+        map_src = None
         if map_path:
-            html += f'<h2>Map</h2><iframe src="{map_path}" width="100%" height="520" frameborder="0"></iframe>'
+            try:
+                map_src = os.path.relpath(map_path, start=os.path.dirname(filepath)).replace("\\", "/")
+            except Exception:
+                map_src = map_path.replace("\\", "/")
+        html = header_html + html_table
+        if map_src:
+            html += f'<h2>Map</h2><iframe src="{map_src}" width="100%" height="520" frameborder="0"></iframe>'
         else:
             html += "<h2>Map</h2><p><em>Map not generated (no folium or no coordinates).</em></p>"
+        html += "<h2>Analyst Insights</h2>" + insights_html(head, group, top=min(3, len(head)))
         md_cmds, html_cmds = _build_dump_commands(head, group, run_params or {}, max_rows=3)
         if html_cmds:
             html += html_cmds

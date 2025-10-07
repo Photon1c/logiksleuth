@@ -1,0 +1,1167 @@
+# Homicide Clearance Risk Scan<br/>
+<br/>
+**Generated:** 2025-10-01 15:13:42<br/>
+**Filters:** csv=.\adv_crim\SHR65_23.csv, group=msa, focus_sex=female, threshold=1.0, min_total=1, relcirc=True, solved_source=field<br/>
+<style type="text/css">
+#T_71bab_row0_col5, #T_71bab_row1_col5, #T_71bab_row2_col5, #T_71bab_row3_col5, #T_71bab_row4_col5, #T_71bab_row5_col5, #T_71bab_row6_col5, #T_71bab_row7_col5, #T_71bab_row8_col5, #T_71bab_row9_col5, #T_71bab_row10_col5, #T_71bab_row11_col5, #T_71bab_row12_col5, #T_71bab_row13_col5, #T_71bab_row14_col5, #T_71bab_row15_col5, #T_71bab_row16_col5, #T_71bab_row17_col5, #T_71bab_row18_col5, #T_71bab_row19_col5, #T_71bab_row20_col5, #T_71bab_row21_col5, #T_71bab_row22_col5, #T_71bab_row23_col5, #T_71bab_row24_col5, #T_71bab_row25_col5, #T_71bab_row26_col5, #T_71bab_row27_col5, #T_71bab_row28_col5, #T_71bab_row29_col5, #T_71bab_row30_col5, #T_71bab_row31_col5, #T_71bab_row32_col5, #T_71bab_row33_col5, #T_71bab_row34_col5, #T_71bab_row35_col5, #T_71bab_row36_col5, #T_71bab_row37_col5, #T_71bab_row38_col5, #T_71bab_row39_col5, #T_71bab_row40_col5, #T_71bab_row41_col5, #T_71bab_row42_col5, #T_71bab_row43_col5, #T_71bab_row44_col5, #T_71bab_row45_col5, #T_71bab_row46_col5, #T_71bab_row47_col5, #T_71bab_row48_col5, #T_71bab_row49_col5 {
+  background-color: #d4edda;
+}
+#T_71bab_row0_col6, #T_71bab_row24_col13 {
+  background-color: #023858;
+  color: #f1f1f1;
+}
+#T_71bab_row0_col13 {
+  background-color: #3f93c2;
+  color: #f1f1f1;
+}
+#T_71bab_row1_col6 {
+  background-color: #045280;
+  color: #f1f1f1;
+}
+#T_71bab_row1_col13 {
+  background-color: #b7c5df;
+  color: #000000;
+}
+#T_71bab_row2_col6 {
+  background-color: #0872b1;
+  color: #f1f1f1;
+}
+#T_71bab_row2_col13, #T_71bab_row27_col13 {
+  background-color: #96b6d7;
+  color: #000000;
+}
+#T_71bab_row3_col6 {
+  background-color: #4697c4;
+  color: #f1f1f1;
+}
+#T_71bab_row3_col13 {
+  background-color: #9cb9d9;
+  color: #000000;
+}
+#T_71bab_row4_col6 {
+  background-color: #569dc8;
+  color: #f1f1f1;
+}
+#T_71bab_row4_col13 {
+  background-color: #3991c1;
+  color: #f1f1f1;
+}
+#T_71bab_row5_col6 {
+  background-color: #b3c3de;
+  color: #000000;
+}
+#T_71bab_row5_col13 {
+  background-color: #04649e;
+  color: #f1f1f1;
+}
+#T_71bab_row6_col6 {
+  background-color: #c2cbe2;
+  color: #000000;
+}
+#T_71bab_row6_col13 {
+  background-color: #d0d1e6;
+  color: #000000;
+}
+#T_71bab_row7_col6 {
+  background-color: #cdd0e5;
+  color: #000000;
+}
+#T_71bab_row7_col13, #T_71bab_row22_col13 {
+  background-color: #c9cee4;
+  color: #000000;
+}
+#T_71bab_row8_col6, #T_71bab_row10_col13, #T_71bab_row28_col13 {
+  background-color: #d1d2e6;
+  color: #000000;
+}
+#T_71bab_row8_col13 {
+  background-color: #8fb4d6;
+  color: #000000;
+}
+#T_71bab_row9_col6 {
+  background-color: #d8d7e9;
+  color: #000000;
+}
+#T_71bab_row9_col13 {
+  background-color: #b9c6e0;
+  color: #000000;
+}
+#T_71bab_row10_col6 {
+  background-color: #dfddec;
+  color: #000000;
+}
+#T_71bab_row11_col6 {
+  background-color: #e0deed;
+  color: #000000;
+}
+#T_71bab_row11_col13, #T_71bab_row37_col13 {
+  background-color: #ece7f2;
+  color: #000000;
+}
+#T_71bab_row12_col6, #T_71bab_row13_col6, #T_71bab_row14_col6 {
+  background-color: #e2dfee;
+  color: #000000;
+}
+#T_71bab_row12_col13 {
+  background-color: #8eb3d5;
+  color: #000000;
+}
+#T_71bab_row13_col13, #T_71bab_row23_col6 {
+  background-color: #f0eaf4;
+  color: #000000;
+}
+#T_71bab_row14_col13, #T_71bab_row16_col6, #T_71bab_row17_col6 {
+  background-color: #e7e3f0;
+  color: #000000;
+}
+#T_71bab_row15_col6 {
+  background-color: #e5e1ef;
+  color: #000000;
+}
+#T_71bab_row15_col13 {
+  background-color: #0567a1;
+  color: #f1f1f1;
+}
+#T_71bab_row16_col13 {
+  background-color: #6fa7ce;
+  color: #f1f1f1;
+}
+#T_71bab_row17_col13 {
+  background-color: #056ba7;
+  color: #f1f1f1;
+}
+#T_71bab_row18_col6, #T_71bab_row23_col13 {
+  background-color: #e9e5f1;
+  color: #000000;
+}
+#T_71bab_row18_col13 {
+  background-color: #4c99c5;
+  color: #f1f1f1;
+}
+#T_71bab_row19_col6 {
+  background-color: #eae6f1;
+  color: #000000;
+}
+#T_71bab_row19_col13 {
+  background-color: #97b7d7;
+  color: #000000;
+}
+#T_71bab_row20_col6 {
+  background-color: #eee8f3;
+  color: #000000;
+}
+#T_71bab_row20_col13, #T_71bab_row31_col13 {
+  background-color: #dcdaeb;
+  color: #000000;
+}
+#T_71bab_row21_col6 {
+  background-color: #eee9f3;
+  color: #000000;
+}
+#T_71bab_row21_col13, #T_71bab_row49_col6 {
+  background-color: #fff7fb;
+  color: #000000;
+}
+#T_71bab_row22_col6, #T_71bab_row32_col13 {
+  background-color: #efe9f3;
+  color: #000000;
+}
+#T_71bab_row24_col6 {
+  background-color: #f1ebf4;
+  color: #000000;
+}
+#T_71bab_row25_col6 {
+  background-color: #f1ebf5;
+  color: #000000;
+}
+#T_71bab_row25_col13 {
+  background-color: #9ebad9;
+  color: #000000;
+}
+#T_71bab_row26_col6 {
+  background-color: #f2ecf5;
+  color: #000000;
+}
+#T_71bab_row26_col13 {
+  background-color: #5a9ec9;
+  color: #f1f1f1;
+}
+#T_71bab_row27_col6 {
+  background-color: #f3edf5;
+  color: #000000;
+}
+#T_71bab_row28_col6, #T_71bab_row29_col6 {
+  background-color: #f5eef6;
+  color: #000000;
+}
+#T_71bab_row29_col13 {
+  background-color: #dad9ea;
+  color: #000000;
+}
+#T_71bab_row30_col6 {
+  background-color: #f5eff6;
+  color: #000000;
+}
+#T_71bab_row30_col13 {
+  background-color: #3b92c1;
+  color: #f1f1f1;
+}
+#T_71bab_row31_col6, #T_71bab_row32_col6, #T_71bab_row33_col6, #T_71bab_row34_col6, #T_71bab_row40_col13 {
+  background-color: #f7f0f7;
+  color: #000000;
+}
+#T_71bab_row33_col13 {
+  background-color: #d2d3e7;
+  color: #000000;
+}
+#T_71bab_row34_col13, #T_71bab_row48_col13 {
+  background-color: #3d93c2;
+  color: #f1f1f1;
+}
+#T_71bab_row35_col6, #T_71bab_row36_col6, #T_71bab_row37_col6, #T_71bab_row38_col6, #T_71bab_row39_col6 {
+  background-color: #f8f1f8;
+  color: #000000;
+}
+#T_71bab_row35_col13, #T_71bab_row36_col13 {
+  background-color: #69a5cc;
+  color: #f1f1f1;
+}
+#T_71bab_row38_col13 {
+  background-color: #c0c9e2;
+  color: #000000;
+}
+#T_71bab_row39_col13 {
+  background-color: #4e9ac6;
+  color: #f1f1f1;
+}
+#T_71bab_row40_col6 {
+  background-color: #f9f2f8;
+  color: #000000;
+}
+#T_71bab_row41_col6 {
+  background-color: #faf2f8;
+  color: #000000;
+}
+#T_71bab_row41_col13 {
+  background-color: #86b0d3;
+  color: #000000;
+}
+#T_71bab_row42_col6 {
+  background-color: #faf3f9;
+  color: #000000;
+}
+#T_71bab_row42_col13 {
+  background-color: #d6d6e9;
+  color: #000000;
+}
+#T_71bab_row43_col6, #T_71bab_row44_col6 {
+  background-color: #fbf4f9;
+  color: #000000;
+}
+#T_71bab_row43_col13 {
+  background-color: #045b8e;
+  color: #f1f1f1;
+}
+#T_71bab_row44_col13 {
+  background-color: #6ba5cd;
+  color: #f1f1f1;
+}
+#T_71bab_row45_col6 {
+  background-color: #fcf4fa;
+  color: #000000;
+}
+#T_71bab_row45_col13 {
+  background-color: #9ab8d8;
+  color: #000000;
+}
+#T_71bab_row46_col6, #T_71bab_row47_col6 {
+  background-color: #fdf5fa;
+  color: #000000;
+}
+#T_71bab_row46_col13 {
+  background-color: #328dbf;
+  color: #f1f1f1;
+}
+#T_71bab_row47_col13, #T_71bab_row49_col13 {
+  background-color: #e3e0ee;
+  color: #000000;
+}
+#T_71bab_row48_col6 {
+  background-color: #fef6fa;
+  color: #000000;
+}
+</style>
+<table id="T_71bab">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_71bab_level0_col0" class="col_heading level0 col0" >MURDGRP</th>
+      <th id="T_71bab_level0_col1" class="col_heading level0 col1" >SEX</th>
+      <th id="T_71bab_level0_col2" class="col_heading level0 col2" >WEAPON_LABEL</th>
+      <th id="T_71bab_level0_col3" class="col_heading level0 col3" >TOTAL</th>
+      <th id="T_71bab_level0_col4" class="col_heading level0 col4" >SOLVED</th>
+      <th id="T_71bab_level0_col5" class="col_heading level0 col5" >PERCENT</th>
+      <th id="T_71bab_level0_col6" class="col_heading level0 col6" >UNSOLVED</th>
+      <th id="T_71bab_level0_col7" class="col_heading level0 col7" >MSA_LABEL</th>
+      <th id="T_71bab_level0_col8" class="col_heading level0 col8" >REL_UNK_RATE</th>
+      <th id="T_71bab_level0_col9" class="col_heading level0 col9" >REL_TOP1</th>
+      <th id="T_71bab_level0_col10" class="col_heading level0 col10" >CIRC_UNK_RATE</th>
+      <th id="T_71bab_level0_col11" class="col_heading level0 col11" >CIRC_TOP1</th>
+      <th id="T_71bab_level0_col12" class="col_heading level0 col12" >REPORT_GAP_IDX</th>
+      <th id="T_71bab_level0_col13" class="col_heading level0 col13" >anomaly_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_71bab_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_71bab_row0_col0" class="data row0 col0" >68843893</td>
+      <td id="T_71bab_row0_col1" class="data row0 col1" >2</td>
+      <td id="T_71bab_row0_col2" class="data row0 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row0_col3" class="data row0 col3" >3386</td>
+      <td id="T_71bab_row0_col4" class="data row0 col4" >2218</td>
+      <td id="T_71bab_row0_col5" class="data row0 col5" >65.5%</td>
+      <td id="T_71bab_row0_col6" class="data row0 col6" >1168</td>
+      <td id="T_71bab_row0_col7" class="data row0 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row0_col8" class="data row0 col8" >47.0%</td>
+      <td id="T_71bab_row0_col9" class="data row0 col9" >Wife</td>
+      <td id="T_71bab_row0_col10" class="data row0 col10" >43.5%</td>
+      <td id="T_71bab_row0_col11" class="data row0 col11" >Other arguments</td>
+      <td id="T_71bab_row0_col12" class="data row0 col12" >45.3%</td>
+      <td id="T_71bab_row0_col13" class="data row0 col13" >2.036702</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_71bab_row1_col0" class="data row1 col0" >62493998</td>
+      <td id="T_71bab_row1_col1" class="data row1 col1" >2</td>
+      <td id="T_71bab_row1_col2" class="data row1 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row1_col3" class="data row1 col3" >3936</td>
+      <td id="T_71bab_row1_col4" class="data row1 col4" >2868</td>
+      <td id="T_71bab_row1_col5" class="data row1 col5" >72.9%</td>
+      <td id="T_71bab_row1_col6" class="data row1 col6" >1068</td>
+      <td id="T_71bab_row1_col7" class="data row1 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row1_col8" class="data row1 col8" >24.5%</td>
+      <td id="T_71bab_row1_col9" class="data row1 col9" >Stranger</td>
+      <td id="T_71bab_row1_col10" class="data row1 col10" >14.4%</td>
+      <td id="T_71bab_row1_col11" class="data row1 col11" >Other arguments</td>
+      <td id="T_71bab_row1_col12" class="data row1 col12" >19.4%</td>
+      <td id="T_71bab_row1_col13" class="data row1 col13" >1.341250</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_71bab_row2_col0" class="data row2 col0" >65759645</td>
+      <td id="T_71bab_row2_col1" class="data row2 col1" >2</td>
+      <td id="T_71bab_row2_col2" class="data row2 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row2_col3" class="data row2 col3" >3187</td>
+      <td id="T_71bab_row2_col4" class="data row2 col4" >2288</td>
+      <td id="T_71bab_row2_col5" class="data row2 col5" >71.8%</td>
+      <td id="T_71bab_row2_col6" class="data row2 col6" >899</td>
+      <td id="T_71bab_row2_col7" class="data row2 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row2_col8" class="data row2 col8" >36.1%</td>
+      <td id="T_71bab_row2_col9" class="data row2 col9" >Wife</td>
+      <td id="T_71bab_row2_col10" class="data row2 col10" >38.4%</td>
+      <td id="T_71bab_row2_col11" class="data row2 col11" >Other arguments</td>
+      <td id="T_71bab_row2_col12" class="data row2 col12" >37.2%</td>
+      <td id="T_71bab_row2_col13" class="data row2 col13" >1.561224</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_71bab_row3_col0" class="data row3 col0" >84362175</td>
+      <td id="T_71bab_row3_col1" class="data row3 col1" >2</td>
+      <td id="T_71bab_row3_col2" class="data row3 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row3_col3" class="data row3 col3" >2463</td>
+      <td id="T_71bab_row3_col4" class="data row3 col4" >1717</td>
+      <td id="T_71bab_row3_col5" class="data row3 col5" >69.7%</td>
+      <td id="T_71bab_row3_col6" class="data row3 col6" >746</td>
+      <td id="T_71bab_row3_col7" class="data row3 col7" >Chicago-Naperville-Joliet, IL-IN-WI</td>
+      <td id="T_71bab_row3_col8" class="data row3 col8" >35.6%</td>
+      <td id="T_71bab_row3_col9" class="data row3 col9" >Stranger</td>
+      <td id="T_71bab_row3_col10" class="data row3 col10" >22.1%</td>
+      <td id="T_71bab_row3_col11" class="data row3 col11" >Other arguments</td>
+      <td id="T_71bab_row3_col12" class="data row3 col12" >28.9%</td>
+      <td id="T_71bab_row3_col13" class="data row3 col13" >1.524096</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_71bab_row4_col0" class="data row4 col0" >15641893</td>
+      <td id="T_71bab_row4_col1" class="data row4 col1" >2</td>
+      <td id="T_71bab_row4_col2" class="data row4 col2" >Personal weapons, includes beating</td>
+      <td id="T_71bab_row4_col3" class="data row4 col3" >1867</td>
+      <td id="T_71bab_row4_col4" class="data row4 col4" >1153</td>
+      <td id="T_71bab_row4_col5" class="data row4 col5" >61.8%</td>
+      <td id="T_71bab_row4_col6" class="data row4 col6" >714</td>
+      <td id="T_71bab_row4_col7" class="data row4 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row4_col8" class="data row4 col8" >44.4%</td>
+      <td id="T_71bab_row4_col9" class="data row4 col9" >Daughter</td>
+      <td id="T_71bab_row4_col10" class="data row4 col10" >42.6%</td>
+      <td id="T_71bab_row4_col11" class="data row4 col11" >Other</td>
+      <td id="T_71bab_row4_col12" class="data row4 col12" >43.5%</td>
+      <td id="T_71bab_row4_col13" class="data row4 col13" >2.067186</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_71bab_row5_col0" class="data row5 col0" >67936706</td>
+      <td id="T_71bab_row5_col1" class="data row5 col1" >2</td>
+      <td id="T_71bab_row5_col2" class="data row5 col2" >Other or type unknown</td>
+      <td id="T_71bab_row5_col3" class="data row5 col3" >985</td>
+      <td id="T_71bab_row5_col4" class="data row5 col4" >502</td>
+      <td id="T_71bab_row5_col5" class="data row5 col5" >51.0%</td>
+      <td id="T_71bab_row5_col6" class="data row5 col6" >483</td>
+      <td id="T_71bab_row5_col7" class="data row5 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row5_col8" class="data row5 col8" >55.1%</td>
+      <td id="T_71bab_row5_col9" class="data row5 col9" >Daughter</td>
+      <td id="T_71bab_row5_col10" class="data row5 col10" >48.2%</td>
+      <td id="T_71bab_row5_col11" class="data row5 col11" >Other</td>
+      <td id="T_71bab_row5_col12" class="data row5 col12" >51.7%</td>
+      <td id="T_71bab_row5_col13" class="data row5 col13" >2.563568</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_71bab_row6_col0" class="data row6 col0" >89201110</td>
+      <td id="T_71bab_row6_col1" class="data row6 col1" >2</td>
+      <td id="T_71bab_row6_col2" class="data row6 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row6_col3" class="data row6 col3" >1674</td>
+      <td id="T_71bab_row6_col4" class="data row6 col4" >1240</td>
+      <td id="T_71bab_row6_col5" class="data row6 col5" >74.1%</td>
+      <td id="T_71bab_row6_col6" class="data row6 col6" >434</td>
+      <td id="T_71bab_row6_col7" class="data row6 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row6_col8" class="data row6 col8" >25.0%</td>
+      <td id="T_71bab_row6_col9" class="data row6 col9" >Stranger</td>
+      <td id="T_71bab_row6_col10" class="data row6 col10" >15.2%</td>
+      <td id="T_71bab_row6_col11" class="data row6 col11" >Other arguments</td>
+      <td id="T_71bab_row6_col12" class="data row6 col12" >20.1%</td>
+      <td id="T_71bab_row6_col13" class="data row6 col13" >1.155467</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_71bab_row7_col0" class="data row7 col0" >49139698</td>
+      <td id="T_71bab_row7_col1" class="data row7 col1" >2</td>
+      <td id="T_71bab_row7_col2" class="data row7 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row7_col3" class="data row7 col3" >1649</td>
+      <td id="T_71bab_row7_col4" class="data row7 col4" >1247</td>
+      <td id="T_71bab_row7_col5" class="data row7 col5" >75.6%</td>
+      <td id="T_71bab_row7_col6" class="data row7 col6" >402</td>
+      <td id="T_71bab_row7_col7" class="data row7 col7" >Detroit-Warren-Livonia, MI</td>
+      <td id="T_71bab_row7_col8" class="data row7 col8" >33.6%</td>
+      <td id="T_71bab_row7_col9" class="data row7 col9" >Acquaintance</td>
+      <td id="T_71bab_row7_col10" class="data row7 col10" >33.0%</td>
+      <td id="T_71bab_row7_col11" class="data row7 col11" >Other arguments</td>
+      <td id="T_71bab_row7_col12" class="data row7 col12" >33.3%</td>
+      <td id="T_71bab_row7_col13" class="data row7 col13" >1.203690</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_71bab_row8_col0" class="data row8 col0" >95627511</td>
+      <td id="T_71bab_row8_col1" class="data row8 col1" >2</td>
+      <td id="T_71bab_row8_col2" class="data row8 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row8_col3" class="data row8 col3" >1188</td>
+      <td id="T_71bab_row8_col4" class="data row8 col4" >798</td>
+      <td id="T_71bab_row8_col5" class="data row8 col5" >67.2%</td>
+      <td id="T_71bab_row8_col6" class="data row8 col6" >390</td>
+      <td id="T_71bab_row8_col7" class="data row8 col7" >Washington-Arlington-Alexandria, DC-VA-MD-WV</td>
+      <td id="T_71bab_row8_col8" class="data row8 col8" >38.4%</td>
+      <td id="T_71bab_row8_col9" class="data row8 col9" >Wife</td>
+      <td id="T_71bab_row8_col10" class="data row8 col10" >36.4%</td>
+      <td id="T_71bab_row8_col11" class="data row8 col11" >Other arguments</td>
+      <td id="T_71bab_row8_col12" class="data row8 col12" >37.4%</td>
+      <td id="T_71bab_row8_col13" class="data row8 col13" >1.596645</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_71bab_row9_col0" class="data row9 col0" >41912975</td>
+      <td id="T_71bab_row9_col1" class="data row9 col1" >2</td>
+      <td id="T_71bab_row9_col2" class="data row9 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row9_col3" class="data row9 col3" >1195</td>
+      <td id="T_71bab_row9_col4" class="data row9 col4" >840</td>
+      <td id="T_71bab_row9_col5" class="data row9 col5" >70.3%</td>
+      <td id="T_71bab_row9_col6" class="data row9 col6" >355</td>
+      <td id="T_71bab_row9_col7" class="data row9 col7" >San Francisco-Oakland-Fremont, CA</td>
+      <td id="T_71bab_row9_col8" class="data row9 col8" >28.3%</td>
+      <td id="T_71bab_row9_col9" class="data row9 col9" >Wife</td>
+      <td id="T_71bab_row9_col10" class="data row9 col10" >22.4%</td>
+      <td id="T_71bab_row9_col11" class="data row9 col11" >Other arguments</td>
+      <td id="T_71bab_row9_col12" class="data row9 col12" >25.4%</td>
+      <td id="T_71bab_row9_col13" class="data row9 col13" >1.319534</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row10" class="row_heading level0 row10" >10</th>
+      <td id="T_71bab_row10_col0" class="data row10 col0" >84878321</td>
+      <td id="T_71bab_row10_col1" class="data row10 col1" >2</td>
+      <td id="T_71bab_row10_col2" class="data row10 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row10_col3" class="data row10 col3" >1260</td>
+      <td id="T_71bab_row10_col4" class="data row10 col4" >935</td>
+      <td id="T_71bab_row10_col5" class="data row10 col5" >74.2%</td>
+      <td id="T_71bab_row10_col6" class="data row10 col6" >325</td>
+      <td id="T_71bab_row10_col7" class="data row10 col7" >Chicago-Naperville-Joliet, IL-IN-WI</td>
+      <td id="T_71bab_row10_col8" class="data row10 col8" >28.8%</td>
+      <td id="T_71bab_row10_col9" class="data row10 col9" >Girlfriend</td>
+      <td id="T_71bab_row10_col10" class="data row10 col10" >18.5%</td>
+      <td id="T_71bab_row10_col11" class="data row10 col11" >Other arguments</td>
+      <td id="T_71bab_row10_col12" class="data row10 col12" >23.7%</td>
+      <td id="T_71bab_row10_col13" class="data row10 col13" >1.138564</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row11" class="row_heading level0 row11" >11</th>
+      <td id="T_71bab_row11_col0" class="data row11 col0" >66036809</td>
+      <td id="T_71bab_row11_col1" class="data row11 col1" >2</td>
+      <td id="T_71bab_row11_col2" class="data row11 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row11_col3" class="data row11 col3" >1688</td>
+      <td id="T_71bab_row11_col4" class="data row11 col4" >1373</td>
+      <td id="T_71bab_row11_col5" class="data row11 col5" >81.3%</td>
+      <td id="T_71bab_row11_col6" class="data row11 col6" >315</td>
+      <td id="T_71bab_row11_col7" class="data row11 col7" >Atlanta-Sandy Springs-Marietta, GA</td>
+      <td id="T_71bab_row11_col8" class="data row11 col8" >21.7%</td>
+      <td id="T_71bab_row11_col9" class="data row11 col9" >Wife</td>
+      <td id="T_71bab_row11_col10" class="data row11 col10" >19.8%</td>
+      <td id="T_71bab_row11_col11" class="data row11 col11" >Other arguments</td>
+      <td id="T_71bab_row11_col12" class="data row11 col12" >20.8%</td>
+      <td id="T_71bab_row11_col13" class="data row11 col13" >0.837630</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row12" class="row_heading level0 row12" >12</th>
+      <td id="T_71bab_row12_col0" class="data row12 col0" >32612844</td>
+      <td id="T_71bab_row12_col1" class="data row12 col1" >2</td>
+      <td id="T_71bab_row12_col2" class="data row12 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row12_col3" class="data row12 col3" >938</td>
+      <td id="T_71bab_row12_col4" class="data row12 col4" >628</td>
+      <td id="T_71bab_row12_col5" class="data row12 col5" >67.0%</td>
+      <td id="T_71bab_row12_col6" class="data row12 col6" >310</td>
+      <td id="T_71bab_row12_col7" class="data row12 col7" >Baltimore-Towson, MD</td>
+      <td id="T_71bab_row12_col8" class="data row12 col8" >43.2%</td>
+      <td id="T_71bab_row12_col9" class="data row12 col9" >Acquaintance</td>
+      <td id="T_71bab_row12_col10" class="data row12 col10" >41.9%</td>
+      <td id="T_71bab_row12_col11" class="data row12 col11" >Other arguments</td>
+      <td id="T_71bab_row12_col12" class="data row12 col12" >42.5%</td>
+      <td id="T_71bab_row12_col13" class="data row12 col13" >1.612201</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row13" class="row_heading level0 row13" >13</th>
+      <td id="T_71bab_row13_col0" class="data row13 col0" >35119246</td>
+      <td id="T_71bab_row13_col1" class="data row13 col1" >2</td>
+      <td id="T_71bab_row13_col2" class="data row13 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row13_col3" class="data row13 col3" >1863</td>
+      <td id="T_71bab_row13_col4" class="data row13 col4" >1555</td>
+      <td id="T_71bab_row13_col5" class="data row13 col5" >83.5%</td>
+      <td id="T_71bab_row13_col6" class="data row13 col6" >308</td>
+      <td id="T_71bab_row13_col7" class="data row13 col7" >Dallas-Fort Worth-Arlington, TX</td>
+      <td id="T_71bab_row13_col8" class="data row13 col8" >26.7%</td>
+      <td id="T_71bab_row13_col9" class="data row13 col9" >Wife</td>
+      <td id="T_71bab_row13_col10" class="data row13 col10" >22.5%</td>
+      <td id="T_71bab_row13_col11" class="data row13 col11" >Other arguments</td>
+      <td id="T_71bab_row13_col12" class="data row13 col12" >24.6%</td>
+      <td id="T_71bab_row13_col13" class="data row13 col13" >0.775854</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row14" class="row_heading level0 row14" >14</th>
+      <td id="T_71bab_row14_col0" class="data row14 col0" >38678938</td>
+      <td id="T_71bab_row14_col1" class="data row14 col1" >2</td>
+      <td id="T_71bab_row14_col2" class="data row14 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row14_col3" class="data row14 col3" >1566</td>
+      <td id="T_71bab_row14_col4" class="data row14 col4" >1259</td>
+      <td id="T_71bab_row14_col5" class="data row14 col5" >80.4%</td>
+      <td id="T_71bab_row14_col6" class="data row14 col6" >307</td>
+      <td id="T_71bab_row14_col7" class="data row14 col7" >Philadelphia-Camden-Wilmington, PA-NJ-DE</td>
+      <td id="T_71bab_row14_col8" class="data row14 col8" >25.3%</td>
+      <td id="T_71bab_row14_col9" class="data row14 col9" >Girlfriend</td>
+      <td id="T_71bab_row14_col10" class="data row14 col10" >22.4%</td>
+      <td id="T_71bab_row14_col11" class="data row14 col11" >Other arguments</td>
+      <td id="T_71bab_row14_col12" class="data row14 col12" >23.9%</td>
+      <td id="T_71bab_row14_col13" class="data row14 col13" >0.893122</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row15" class="row_heading level0 row15" >15</th>
+      <td id="T_71bab_row15_col0" class="data row15 col0" >1066748</td>
+      <td id="T_71bab_row15_col1" class="data row15 col1" >2</td>
+      <td id="T_71bab_row15_col2" class="data row15 col2" >Firearm, type not stated</td>
+      <td id="T_71bab_row15_col3" class="data row15 col3" >640</td>
+      <td id="T_71bab_row15_col4" class="data row15 col4" >345</td>
+      <td id="T_71bab_row15_col5" class="data row15 col5" >53.9%</td>
+      <td id="T_71bab_row15_col6" class="data row15 col6" >295</td>
+      <td id="T_71bab_row15_col7" class="data row15 col7" >Detroit-Warren-Livonia, MI</td>
+      <td id="T_71bab_row15_col8" class="data row15 col8" >73.1%</td>
+      <td id="T_71bab_row15_col9" class="data row15 col9" >Acquaintance</td>
+      <td id="T_71bab_row15_col10" class="data row15 col10" >66.6%</td>
+      <td id="T_71bab_row15_col11" class="data row15 col11" >Other arguments</td>
+      <td id="T_71bab_row15_col12" class="data row15 col12" >69.8%</td>
+      <td id="T_71bab_row15_col13" class="data row15 col13" >2.529867</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row16" class="row_heading level0 row16" >16</th>
+      <td id="T_71bab_row16_col0" class="data row16 col0" >36513824</td>
+      <td id="T_71bab_row16_col1" class="data row16 col1" >2</td>
+      <td id="T_71bab_row16_col2" class="data row16 col2" >Blunt object - hammer, club, etc</td>
+      <td id="T_71bab_row16_col3" class="data row16 col3" >774</td>
+      <td id="T_71bab_row16_col4" class="data row16 col4" >485</td>
+      <td id="T_71bab_row16_col5" class="data row16 col5" >62.7%</td>
+      <td id="T_71bab_row16_col6" class="data row16 col6" >289</td>
+      <td id="T_71bab_row16_col7" class="data row16 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row16_col8" class="data row16 col8" >43.5%</td>
+      <td id="T_71bab_row16_col9" class="data row16 col9" >Acquaintance</td>
+      <td id="T_71bab_row16_col10" class="data row16 col10" >46.5%</td>
+      <td id="T_71bab_row16_col11" class="data row16 col11" >Other arguments</td>
+      <td id="T_71bab_row16_col12" class="data row16 col12" >45.0%</td>
+      <td id="T_71bab_row16_col13" class="data row16 col13" >1.801278</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row17" class="row_heading level0 row17" >17</th>
+      <td id="T_71bab_row17_col0" class="data row17 col0" >19933317</td>
+      <td id="T_71bab_row17_col1" class="data row17 col1" >2</td>
+      <td id="T_71bab_row17_col2" class="data row17 col2" >Other or type unknown</td>
+      <td id="T_71bab_row17_col3" class="data row17 col3" >616</td>
+      <td id="T_71bab_row17_col4" class="data row17 col4" >333</td>
+      <td id="T_71bab_row17_col5" class="data row17 col5" >54.1%</td>
+      <td id="T_71bab_row17_col6" class="data row17 col6" >283</td>
+      <td id="T_71bab_row17_col7" class="data row17 col7" >Miami-Fort Lauderdale, FL</td>
+      <td id="T_71bab_row17_col8" class="data row17 col8" >75.8%</td>
+      <td id="T_71bab_row17_col9" class="data row17 col9" >Wife</td>
+      <td id="T_71bab_row17_col10" class="data row17 col10" >58.9%</td>
+      <td id="T_71bab_row17_col11" class="data row17 col11" >Other</td>
+      <td id="T_71bab_row17_col12" class="data row17 col12" >67.4%</td>
+      <td id="T_71bab_row17_col13" class="data row17 col13" >2.470119</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row18" class="row_heading level0 row18" >18</th>
+      <td id="T_71bab_row18_col0" class="data row18 col0" >49044812</td>
+      <td id="T_71bab_row18_col1" class="data row18 col1" >2</td>
+      <td id="T_71bab_row18_col2" class="data row18 col2" >Strangulation - hanging</td>
+      <td id="T_71bab_row18_col3" class="data row18 col3" >596</td>
+      <td id="T_71bab_row18_col4" class="data row18 col4" >321</td>
+      <td id="T_71bab_row18_col5" class="data row18 col5" >53.9%</td>
+      <td id="T_71bab_row18_col6" class="data row18 col6" >275</td>
+      <td id="T_71bab_row18_col7" class="data row18 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row18_col8" class="data row18 col8" >44.8%</td>
+      <td id="T_71bab_row18_col9" class="data row18 col9" >Stranger</td>
+      <td id="T_71bab_row18_col10" class="data row18 col10" >22.1%</td>
+      <td id="T_71bab_row18_col11" class="data row18 col11" >Other arguments</td>
+      <td id="T_71bab_row18_col12" class="data row18 col12" >33.5%</td>
+      <td id="T_71bab_row18_col13" class="data row18 col13" >1.968256</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row19" class="row_heading level0 row19" >19</th>
+      <td id="T_71bab_row19_col0" class="data row19 col0" >9294900</td>
+      <td id="T_71bab_row19_col1" class="data row19 col1" >2</td>
+      <td id="T_71bab_row19_col2" class="data row19 col2" >Blunt object - hammer, club, etc</td>
+      <td id="T_71bab_row19_col3" class="data row19 col3" >728</td>
+      <td id="T_71bab_row19_col4" class="data row19 col4" >455</td>
+      <td id="T_71bab_row19_col5" class="data row19 col5" >62.5%</td>
+      <td id="T_71bab_row19_col6" class="data row19 col6" >273</td>
+      <td id="T_71bab_row19_col7" class="data row19 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row19_col8" class="data row19 col8" >33.4%</td>
+      <td id="T_71bab_row19_col9" class="data row19 col9" >Stranger</td>
+      <td id="T_71bab_row19_col10" class="data row19 col10" >17.7%</td>
+      <td id="T_71bab_row19_col11" class="data row19 col11" >Other arguments</td>
+      <td id="T_71bab_row19_col12" class="data row19 col12" >25.5%</td>
+      <td id="T_71bab_row19_col13" class="data row19 col13" >1.551714</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row20" class="row_heading level0 row20" >20</th>
+      <td id="T_71bab_row20_col0" class="data row20 col0" >78682457</td>
+      <td id="T_71bab_row20_col1" class="data row20 col1" >2</td>
+      <td id="T_71bab_row20_col2" class="data row20 col2" >Personal weapons, includes beating</td>
+      <td id="T_71bab_row20_col3" class="data row20 col3" >989</td>
+      <td id="T_71bab_row20_col4" class="data row20 col4" >736</td>
+      <td id="T_71bab_row20_col5" class="data row20 col5" >74.4%</td>
+      <td id="T_71bab_row20_col6" class="data row20 col6" >253</td>
+      <td id="T_71bab_row20_col7" class="data row20 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row20_col8" class="data row20 col8" >22.8%</td>
+      <td id="T_71bab_row20_col9" class="data row20 col9" >Daughter</td>
+      <td id="T_71bab_row20_col10" class="data row20 col10" >6.5%</td>
+      <td id="T_71bab_row20_col11" class="data row20 col11" >Other</td>
+      <td id="T_71bab_row20_col12" class="data row20 col12" >14.6%</td>
+      <td id="T_71bab_row20_col13" class="data row20 col13" >1.011170</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row21" class="row_heading level0 row21" >21</th>
+      <td id="T_71bab_row21_col0" class="data row21 col0" >352629</td>
+      <td id="T_71bab_row21_col1" class="data row21 col1" >2</td>
+      <td id="T_71bab_row21_col2" class="data row21 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row21_col3" class="data row21 col3" >2077</td>
+      <td id="T_71bab_row21_col4" class="data row21 col4" >1831</td>
+      <td id="T_71bab_row21_col5" class="data row21 col5" >88.2%</td>
+      <td id="T_71bab_row21_col6" class="data row21 col6" >246</td>
+      <td id="T_71bab_row21_col7" class="data row21 col7" >Houston-Sugar Land-Baytown, TX</td>
+      <td id="T_71bab_row21_col8" class="data row21 col8" >14.9%</td>
+      <td id="T_71bab_row21_col9" class="data row21 col9" >Wife</td>
+      <td id="T_71bab_row21_col10" class="data row21 col10" >15.2%</td>
+      <td id="T_71bab_row21_col11" class="data row21 col11" >Other arguments</td>
+      <td id="T_71bab_row21_col12" class="data row21 col12" >15.0%</td>
+      <td id="T_71bab_row21_col13" class="data row21 col13" >0.520457</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row22" class="row_heading level0 row22" >22</th>
+      <td id="T_71bab_row22_col0" class="data row22 col0" >92677818</td>
+      <td id="T_71bab_row22_col1" class="data row22 col1" >2</td>
+      <td id="T_71bab_row22_col2" class="data row22 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row22_col3" class="data row22 col3" >920</td>
+      <td id="T_71bab_row22_col4" class="data row22 col4" >678</td>
+      <td id="T_71bab_row22_col5" class="data row22 col5" >73.7%</td>
+      <td id="T_71bab_row22_col6" class="data row22 col6" >242</td>
+      <td id="T_71bab_row22_col7" class="data row22 col7" >New Orleans-Metairie-Kenner, LA</td>
+      <td id="T_71bab_row22_col8" class="data row22 col8" >32.1%</td>
+      <td id="T_71bab_row22_col9" class="data row22 col9" >Acquaintance</td>
+      <td id="T_71bab_row22_col10" class="data row22 col10" >34.2%</td>
+      <td id="T_71bab_row22_col11" class="data row22 col11" >Other arguments</td>
+      <td id="T_71bab_row22_col12" class="data row22 col12" >33.2%</td>
+      <td id="T_71bab_row22_col13" class="data row22 col13" >1.195302</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row23" class="row_heading level0 row23" >23</th>
+      <td id="T_71bab_row23_col0" class="data row23 col0" >83889725</td>
+      <td id="T_71bab_row23_col1" class="data row23 col1" >2</td>
+      <td id="T_71bab_row23_col2" class="data row23 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row23_col3" class="data row23 col3" >1317</td>
+      <td id="T_71bab_row23_col4" class="data row23 col4" >1080</td>
+      <td id="T_71bab_row23_col5" class="data row23 col5" >82.0%</td>
+      <td id="T_71bab_row23_col6" class="data row23 col6" >237</td>
+      <td id="T_71bab_row23_col7" class="data row23 col7" >Miami-Fort Lauderdale, FL</td>
+      <td id="T_71bab_row23_col8" class="data row23 col8" >41.1%</td>
+      <td id="T_71bab_row23_col9" class="data row23 col9" >Wife</td>
+      <td id="T_71bab_row23_col10" class="data row23 col10" >26.8%</td>
+      <td id="T_71bab_row23_col11" class="data row23 col11" >Other</td>
+      <td id="T_71bab_row23_col12" class="data row23 col12" >33.9%</td>
+      <td id="T_71bab_row23_col13" class="data row23 col13" >0.865773</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row24" class="row_heading level0 row24" >24</th>
+      <td id="T_71bab_row24_col0" class="data row24 col0" >1224210</td>
+      <td id="T_71bab_row24_col1" class="data row24 col1" >2</td>
+      <td id="T_71bab_row24_col2" class="data row24 col2" >Firearm, type not stated</td>
+      <td id="T_71bab_row24_col3" class="data row24 col3" >372</td>
+      <td id="T_71bab_row24_col4" class="data row24 col4" >142</td>
+      <td id="T_71bab_row24_col5" class="data row24 col5" >38.2%</td>
+      <td id="T_71bab_row24_col6" class="data row24 col6" >230</td>
+      <td id="T_71bab_row24_col7" class="data row24 col7" >St. Louis, MO-IL</td>
+      <td id="T_71bab_row24_col8" class="data row24 col8" >64.8%</td>
+      <td id="T_71bab_row24_col9" class="data row24 col9" >Girlfriend</td>
+      <td id="T_71bab_row24_col10" class="data row24 col10" >65.6%</td>
+      <td id="T_71bab_row24_col11" class="data row24 col11" >Other arguments</td>
+      <td id="T_71bab_row24_col12" class="data row24 col12" >65.2%</td>
+      <td id="T_71bab_row24_col13" class="data row24 col13" >3.023927</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row25" class="row_heading level0 row25" >25</th>
+      <td id="T_71bab_row25_col0" class="data row25 col0" >14985016</td>
+      <td id="T_71bab_row25_col1" class="data row25 col1" >2</td>
+      <td id="T_71bab_row25_col2" class="data row25 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row25_col3" class="data row25 col3" >696</td>
+      <td id="T_71bab_row25_col4" class="data row25 col4" >467</td>
+      <td id="T_71bab_row25_col5" class="data row25 col5" >67.1%</td>
+      <td id="T_71bab_row25_col6" class="data row25 col6" >229</td>
+      <td id="T_71bab_row25_col7" class="data row25 col7" >Washington-Arlington-Alexandria, DC-VA-MD-WV</td>
+      <td id="T_71bab_row25_col8" class="data row25 col8" >39.5%</td>
+      <td id="T_71bab_row25_col9" class="data row25 col9" >Acquaintance</td>
+      <td id="T_71bab_row25_col10" class="data row25 col10" >41.4%</td>
+      <td id="T_71bab_row25_col11" class="data row25 col11" >Other arguments</td>
+      <td id="T_71bab_row25_col12" class="data row25 col12" >40.4%</td>
+      <td id="T_71bab_row25_col13" class="data row25 col13" >1.512627</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row26" class="row_heading level0 row26" >26</th>
+      <td id="T_71bab_row26_col0" class="data row26 col0" >9617288</td>
+      <td id="T_71bab_row26_col1" class="data row26 col1" >2</td>
+      <td id="T_71bab_row26_col2" class="data row26 col2" >Other or type unknown</td>
+      <td id="T_71bab_row26_col3" class="data row26 col3" >488</td>
+      <td id="T_71bab_row26_col4" class="data row26 col4" >270</td>
+      <td id="T_71bab_row26_col5" class="data row26 col5" >55.3%</td>
+      <td id="T_71bab_row26_col6" class="data row26 col6" >218</td>
+      <td id="T_71bab_row26_col7" class="data row26 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row26_col8" class="data row26 col8" >46.7%</td>
+      <td id="T_71bab_row26_col9" class="data row26 col9" >Stranger</td>
+      <td id="T_71bab_row26_col10" class="data row26 col10" >29.3%</td>
+      <td id="T_71bab_row26_col11" class="data row26 col11" >All suspected felony type</td>
+      <td id="T_71bab_row26_col12" class="data row26 col12" >38.0%</td>
+      <td id="T_71bab_row26_col13" class="data row26 col13" >1.908890</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row27" class="row_heading level0 row27" >27</th>
+      <td id="T_71bab_row27_col0" class="data row27 col0" >80550664</td>
+      <td id="T_71bab_row27_col1" class="data row27 col1" >2</td>
+      <td id="T_71bab_row27_col2" class="data row27 col2" >Firearm, type not stated</td>
+      <td id="T_71bab_row27_col3" class="data row27 col3" >716</td>
+      <td id="T_71bab_row27_col4" class="data row27 col4" >503</td>
+      <td id="T_71bab_row27_col5" class="data row27 col5" >70.3%</td>
+      <td id="T_71bab_row27_col6" class="data row27 col6" >213</td>
+      <td id="T_71bab_row27_col7" class="data row27 col7" >Miami-Fort Lauderdale, FL</td>
+      <td id="T_71bab_row27_col8" class="data row27 col8" >68.9%</td>
+      <td id="T_71bab_row27_col9" class="data row27 col9" >Wife</td>
+      <td id="T_71bab_row27_col10" class="data row27 col10" >50.4%</td>
+      <td id="T_71bab_row27_col11" class="data row27 col11" >Other</td>
+      <td id="T_71bab_row27_col12" class="data row27 col12" >59.6%</td>
+      <td id="T_71bab_row27_col13" class="data row27 col13" >1.561243</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row28" class="row_heading level0 row28" >28</th>
+      <td id="T_71bab_row28_col0" class="data row28 col0" >37597933</td>
+      <td id="T_71bab_row28_col1" class="data row28 col1" >2</td>
+      <td id="T_71bab_row28_col2" class="data row28 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row28_col3" class="data row28 col3" >797</td>
+      <td id="T_71bab_row28_col4" class="data row28 col4" >593</td>
+      <td id="T_71bab_row28_col5" class="data row28 col5" >74.4%</td>
+      <td id="T_71bab_row28_col6" class="data row28 col6" >204</td>
+      <td id="T_71bab_row28_col7" class="data row28 col7" >Detroit-Warren-Livonia, MI</td>
+      <td id="T_71bab_row28_col8" class="data row28 col8" >31.5%</td>
+      <td id="T_71bab_row28_col9" class="data row28 col9" >Acquaintance</td>
+      <td id="T_71bab_row28_col10" class="data row28 col10" >35.1%</td>
+      <td id="T_71bab_row28_col11" class="data row28 col11" >Other arguments</td>
+      <td id="T_71bab_row28_col12" class="data row28 col12" >33.3%</td>
+      <td id="T_71bab_row28_col13" class="data row28 col13" >1.140056</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row29" class="row_heading level0 row29" >29</th>
+      <td id="T_71bab_row29_col0" class="data row29 col0" >71530296</td>
+      <td id="T_71bab_row29_col1" class="data row29 col1" >2</td>
+      <td id="T_71bab_row29_col2" class="data row29 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row29_col3" class="data row29 col3" >833</td>
+      <td id="T_71bab_row29_col4" class="data row29 col4" >630</td>
+      <td id="T_71bab_row29_col5" class="data row29 col5" >75.6%</td>
+      <td id="T_71bab_row29_col6" class="data row29 col6" >203</td>
+      <td id="T_71bab_row29_col7" class="data row29 col7" >Houston-Sugar Land-Baytown, TX</td>
+      <td id="T_71bab_row29_col8" class="data row29 col8" >27.0%</td>
+      <td id="T_71bab_row29_col9" class="data row29 col9" >Acquaintance</td>
+      <td id="T_71bab_row29_col10" class="data row29 col10" >24.8%</td>
+      <td id="T_71bab_row29_col11" class="data row29 col11" >Other arguments</td>
+      <td id="T_71bab_row29_col12" class="data row29 col12" >25.9%</td>
+      <td id="T_71bab_row29_col13" class="data row29 col13" >1.032104</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row30" class="row_heading level0 row30" >30</th>
+      <td id="T_71bab_row30_col0" class="data row30 col0" >33402462</td>
+      <td id="T_71bab_row30_col1" class="data row30 col1" >2</td>
+      <td id="T_71bab_row30_col2" class="data row30 col2" >Strangulation - hanging</td>
+      <td id="T_71bab_row30_col3" class="data row30 col3" >394</td>
+      <td id="T_71bab_row30_col4" class="data row30 col4" >195</td>
+      <td id="T_71bab_row30_col5" class="data row30 col5" >49.5%</td>
+      <td id="T_71bab_row30_col6" class="data row30 col6" >199</td>
+      <td id="T_71bab_row30_col7" class="data row30 col7" >Chicago-Naperville-Joliet, IL-IN-WI</td>
+      <td id="T_71bab_row30_col8" class="data row30 col8" >51.5%</td>
+      <td id="T_71bab_row30_col9" class="data row30 col9" >Girlfriend</td>
+      <td id="T_71bab_row30_col10" class="data row30 col10" >21.3%</td>
+      <td id="T_71bab_row30_col11" class="data row30 col11" >Other arguments</td>
+      <td id="T_71bab_row30_col12" class="data row30 col12" >36.4%</td>
+      <td id="T_71bab_row30_col13" class="data row30 col13" >2.059820</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row31" class="row_heading level0 row31" >31</th>
+      <td id="T_71bab_row31_col0" class="data row31 col0" >35404490</td>
+      <td id="T_71bab_row31_col1" class="data row31 col1" >2</td>
+      <td id="T_71bab_row31_col2" class="data row31 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row31_col3" class="data row31 col3" >835</td>
+      <td id="T_71bab_row31_col4" class="data row31 col4" >643</td>
+      <td id="T_71bab_row31_col5" class="data row31 col5" >77.0%</td>
+      <td id="T_71bab_row31_col6" class="data row31 col6" >192</td>
+      <td id="T_71bab_row31_col7" class="data row31 col7" >St. Louis, MO-IL</td>
+      <td id="T_71bab_row31_col8" class="data row31 col8" >26.9%</td>
+      <td id="T_71bab_row31_col9" class="data row31 col9" >Wife</td>
+      <td id="T_71bab_row31_col10" class="data row31 col10" >34.7%</td>
+      <td id="T_71bab_row31_col11" class="data row31 col11" >Other arguments</td>
+      <td id="T_71bab_row31_col12" class="data row31 col12" >30.8%</td>
+      <td id="T_71bab_row31_col13" class="data row31 col13" >1.012153</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row32" class="row_heading level0 row32" >32</th>
+      <td id="T_71bab_row32_col0" class="data row32 col0" >76278697</td>
+      <td id="T_71bab_row32_col1" class="data row32 col1" >2</td>
+      <td id="T_71bab_row32_col2" class="data row32 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row32_col3" class="data row32 col3" >970</td>
+      <td id="T_71bab_row32_col4" class="data row32 col4" >784</td>
+      <td id="T_71bab_row32_col5" class="data row32 col5" >80.8%</td>
+      <td id="T_71bab_row32_col6" class="data row32 col6" >186</td>
+      <td id="T_71bab_row32_col7" class="data row32 col7" >Riverside-San Bernardino, CA</td>
+      <td id="T_71bab_row32_col8" class="data row32 col8" >18.2%</td>
+      <td id="T_71bab_row32_col9" class="data row32 col9" >Wife</td>
+      <td id="T_71bab_row32_col10" class="data row32 col10" >20.3%</td>
+      <td id="T_71bab_row32_col11" class="data row32 col11" >Other arguments</td>
+      <td id="T_71bab_row32_col12" class="data row32 col12" >19.3%</td>
+      <td id="T_71bab_row32_col13" class="data row32 col13" >0.786603</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row33" class="row_heading level0 row33" >33</th>
+      <td id="T_71bab_row33_col0" class="data row33 col0" >46554254</td>
+      <td id="T_71bab_row33_col1" class="data row33 col1" >2</td>
+      <td id="T_71bab_row33_col2" class="data row33 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row33_col3" class="data row33 col3" >728</td>
+      <td id="T_71bab_row33_col4" class="data row33 col4" >542</td>
+      <td id="T_71bab_row33_col5" class="data row33 col5" >74.5%</td>
+      <td id="T_71bab_row33_col6" class="data row33 col6" >186</td>
+      <td id="T_71bab_row33_col7" class="data row33 col7" >Dallas-Fort Worth-Arlington, TX</td>
+      <td id="T_71bab_row33_col8" class="data row33 col8" >32.1%</td>
+      <td id="T_71bab_row33_col9" class="data row33 col9" >Acquaintance</td>
+      <td id="T_71bab_row33_col10" class="data row33 col10" >35.2%</td>
+      <td id="T_71bab_row33_col11" class="data row33 col11" >Other arguments</td>
+      <td id="T_71bab_row33_col12" class="data row33 col12" >33.7%</td>
+      <td id="T_71bab_row33_col13" class="data row33 col13" >1.125457</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row34" class="row_heading level0 row34" >34</th>
+      <td id="T_71bab_row34_col0" class="data row34 col0" >69914095</td>
+      <td id="T_71bab_row34_col1" class="data row34 col1" >2</td>
+      <td id="T_71bab_row34_col2" class="data row34 col2" >Strangulation - hanging</td>
+      <td id="T_71bab_row34_col3" class="data row34 col3" >399</td>
+      <td id="T_71bab_row34_col4" class="data row34 col4" >213</td>
+      <td id="T_71bab_row34_col5" class="data row34 col5" >53.4%</td>
+      <td id="T_71bab_row34_col6" class="data row34 col6" >186</td>
+      <td id="T_71bab_row34_col7" class="data row34 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row34_col8" class="data row34 col8" >48.6%</td>
+      <td id="T_71bab_row34_col9" class="data row34 col9" >Acquaintance</td>
+      <td id="T_71bab_row34_col10" class="data row34 col10" >44.6%</td>
+      <td id="T_71bab_row34_col11" class="data row34 col11" >Other arguments</td>
+      <td id="T_71bab_row34_col12" class="data row34 col12" >46.6%</td>
+      <td id="T_71bab_row34_col13" class="data row34 col13" >2.047510</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row35" class="row_heading level0 row35" >35</th>
+      <td id="T_71bab_row35_col0" class="data row35 col0" >49903048</td>
+      <td id="T_71bab_row35_col1" class="data row35 col1" >2</td>
+      <td id="T_71bab_row35_col2" class="data row35 col2" >Other or type unknown</td>
+      <td id="T_71bab_row35_col3" class="data row35 col3" >477</td>
+      <td id="T_71bab_row35_col4" class="data row35 col4" >294</td>
+      <td id="T_71bab_row35_col5" class="data row35 col5" >61.6%</td>
+      <td id="T_71bab_row35_col6" class="data row35 col6" >183</td>
+      <td id="T_71bab_row35_col7" class="data row35 col7" >Detroit-Warren-Livonia, MI</td>
+      <td id="T_71bab_row35_col8" class="data row35 col8" >50.7%</td>
+      <td id="T_71bab_row35_col9" class="data row35 col9" >Stranger</td>
+      <td id="T_71bab_row35_col10" class="data row35 col10" >58.1%</td>
+      <td id="T_71bab_row35_col11" class="data row35 col11" >Other</td>
+      <td id="T_71bab_row35_col12" class="data row35 col12" >54.4%</td>
+      <td id="T_71bab_row35_col13" class="data row35 col13" >1.827321</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row36" class="row_heading level0 row36" >36</th>
+      <td id="T_71bab_row36_col0" class="data row36 col0" >1663831</td>
+      <td id="T_71bab_row36_col1" class="data row36 col1" >2</td>
+      <td id="T_71bab_row36_col2" class="data row36 col2" >Other or type unknown</td>
+      <td id="T_71bab_row36_col3" class="data row36 col3" >462</td>
+      <td id="T_71bab_row36_col4" class="data row36 col4" >279</td>
+      <td id="T_71bab_row36_col5" class="data row36 col5" >60.4%</td>
+      <td id="T_71bab_row36_col6" class="data row36 col6" >183</td>
+      <td id="T_71bab_row36_col7" class="data row36 col7" >Dallas-Fort Worth-Arlington, TX</td>
+      <td id="T_71bab_row36_col8" class="data row36 col8" >50.6%</td>
+      <td id="T_71bab_row36_col9" class="data row36 col9" >Stranger</td>
+      <td id="T_71bab_row36_col10" class="data row36 col10" >49.6%</td>
+      <td id="T_71bab_row36_col11" class="data row36 col11" >All other manslaughter by negligence</td>
+      <td id="T_71bab_row36_col12" class="data row36 col12" >50.1%</td>
+      <td id="T_71bab_row36_col13" class="data row36 col13" >1.824699</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row37" class="row_heading level0 row37" >37</th>
+      <td id="T_71bab_row37_col0" class="data row37 col0" >8855518</td>
+      <td id="T_71bab_row37_col1" class="data row37 col1" >2</td>
+      <td id="T_71bab_row37_col2" class="data row37 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row37_col3" class="data row37 col3" >910</td>
+      <td id="T_71bab_row37_col4" class="data row37 col4" >729</td>
+      <td id="T_71bab_row37_col5" class="data row37 col5" >80.1%</td>
+      <td id="T_71bab_row37_col6" class="data row37 col6" >181</td>
+      <td id="T_71bab_row37_col7" class="data row37 col7" >Philadelphia-Camden-Wilmington, PA-NJ-DE</td>
+      <td id="T_71bab_row37_col8" class="data row37 col8" >22.5%</td>
+      <td id="T_71bab_row37_col9" class="data row37 col9" >Girlfriend</td>
+      <td id="T_71bab_row37_col10" class="data row37 col10" >25.6%</td>
+      <td id="T_71bab_row37_col11" class="data row37 col11" >Other arguments</td>
+      <td id="T_71bab_row37_col12" class="data row37 col12" >24.1%</td>
+      <td id="T_71bab_row37_col13" class="data row37 col13" >0.840807</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row38" class="row_heading level0 row38" >38</th>
+      <td id="T_71bab_row38_col0" class="data row38 col0" >95129861</td>
+      <td id="T_71bab_row38_col1" class="data row38 col1" >2</td>
+      <td id="T_71bab_row38_col2" class="data row38 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row38_col3" class="data row38 col3" >603</td>
+      <td id="T_71bab_row38_col4" class="data row38 col4" >425</td>
+      <td id="T_71bab_row38_col5" class="data row38 col5" >70.5%</td>
+      <td id="T_71bab_row38_col6" class="data row38 col6" >178</td>
+      <td id="T_71bab_row38_col7" class="data row38 col7" >Baltimore-Towson, MD</td>
+      <td id="T_71bab_row38_col8" class="data row38 col8" >34.7%</td>
+      <td id="T_71bab_row38_col9" class="data row38 col9" >Acquaintance</td>
+      <td id="T_71bab_row38_col10" class="data row38 col10" >33.8%</td>
+      <td id="T_71bab_row38_col11" class="data row38 col11" >Other arguments</td>
+      <td id="T_71bab_row38_col12" class="data row38 col12" >34.2%</td>
+      <td id="T_71bab_row38_col13" class="data row38 col13" >1.268804</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row39" class="row_heading level0 row39" >39</th>
+      <td id="T_71bab_row39_col0" class="data row39 col0" >40764653</td>
+      <td id="T_71bab_row39_col1" class="data row39 col1" >2</td>
+      <td id="T_71bab_row39_col2" class="data row39 col2" >Firearm, type not stated</td>
+      <td id="T_71bab_row39_col3" class="data row39 col3" >408</td>
+      <td id="T_71bab_row39_col4" class="data row39 col4" >231</td>
+      <td id="T_71bab_row39_col5" class="data row39 col5" >56.6%</td>
+      <td id="T_71bab_row39_col6" class="data row39 col6" >177</td>
+      <td id="T_71bab_row39_col7" class="data row39 col7" >Dallas-Fort Worth-Arlington, TX</td>
+      <td id="T_71bab_row39_col8" class="data row39 col8" >53.9%</td>
+      <td id="T_71bab_row39_col9" class="data row39 col9" >Wife</td>
+      <td id="T_71bab_row39_col10" class="data row39 col10" >46.8%</td>
+      <td id="T_71bab_row39_col11" class="data row39 col11" >Other arguments</td>
+      <td id="T_71bab_row39_col12" class="data row39 col12" >50.4%</td>
+      <td id="T_71bab_row39_col13" class="data row39 col13" >1.961464</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row40" class="row_heading level0 row40" >40</th>
+      <td id="T_71bab_row40_col0" class="data row40 col0" >3073598</td>
+      <td id="T_71bab_row40_col1" class="data row40 col1" >2</td>
+      <td id="T_71bab_row40_col2" class="data row40 col2" >Handgun - pistol, revolver, etc</td>
+      <td id="T_71bab_row40_col3" class="data row40 col3" >1176</td>
+      <td id="T_71bab_row40_col4" class="data row40 col4" >1000</td>
+      <td id="T_71bab_row40_col5" class="data row40 col5" >85.0%</td>
+      <td id="T_71bab_row40_col6" class="data row40 col6" >176</td>
+      <td id="T_71bab_row40_col7" class="data row40 col7" >Phoenix-Mesa-Scottsdale, AZ</td>
+      <td id="T_71bab_row40_col8" class="data row40 col8" >18.2%</td>
+      <td id="T_71bab_row40_col9" class="data row40 col9" >Wife</td>
+      <td id="T_71bab_row40_col10" class="data row40 col10" >28.1%</td>
+      <td id="T_71bab_row40_col11" class="data row40 col11" >Other arguments</td>
+      <td id="T_71bab_row40_col12" class="data row40 col12" >23.2%</td>
+      <td id="T_71bab_row40_col13" class="data row40 col13" >0.651704</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row41" class="row_heading level0 row41" >41</th>
+      <td id="T_71bab_row41_col0" class="data row41 col0" >2294834</td>
+      <td id="T_71bab_row41_col1" class="data row41 col1" >2</td>
+      <td id="T_71bab_row41_col2" class="data row41 col2" >Other or type unknown</td>
+      <td id="T_71bab_row41_col3" class="data row41 col3" >454</td>
+      <td id="T_71bab_row41_col4" class="data row41 col4" >283</td>
+      <td id="T_71bab_row41_col5" class="data row41 col5" >62.3%</td>
+      <td id="T_71bab_row41_col6" class="data row41 col6" >171</td>
+      <td id="T_71bab_row41_col7" class="data row41 col7" >Chicago-Naperville-Joliet, IL-IN-WI</td>
+      <td id="T_71bab_row41_col8" class="data row41 col8" >50.4%</td>
+      <td id="T_71bab_row41_col9" class="data row41 col9" >Stranger</td>
+      <td id="T_71bab_row41_col10" class="data row41 col10" >37.9%</td>
+      <td id="T_71bab_row41_col11" class="data row41 col11" >Other</td>
+      <td id="T_71bab_row41_col12" class="data row41 col12" >44.2%</td>
+      <td id="T_71bab_row41_col13" class="data row41 col13" >1.661639</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row42" class="row_heading level0 row42" >42</th>
+      <td id="T_71bab_row42_col0" class="data row42 col0" >75935142</td>
+      <td id="T_71bab_row42_col1" class="data row42 col1" >2</td>
+      <td id="T_71bab_row42_col2" class="data row42 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row42_col3" class="data row42 col3" >594</td>
+      <td id="T_71bab_row42_col4" class="data row42 col4" >429</td>
+      <td id="T_71bab_row42_col5" class="data row42 col5" >72.2%</td>
+      <td id="T_71bab_row42_col6" class="data row42 col6" >165</td>
+      <td id="T_71bab_row42_col7" class="data row42 col7" >San Francisco-Oakland-Fremont, CA</td>
+      <td id="T_71bab_row42_col8" class="data row42 col8" >27.6%</td>
+      <td id="T_71bab_row42_col9" class="data row42 col9" >Girlfriend</td>
+      <td id="T_71bab_row42_col10" class="data row42 col10" >16.2%</td>
+      <td id="T_71bab_row42_col11" class="data row42 col11" >Other arguments</td>
+      <td id="T_71bab_row42_col12" class="data row42 col12" >21.9%</td>
+      <td id="T_71bab_row42_col13" class="data row42 col13" >1.081490</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row43" class="row_heading level0 row43" >43</th>
+      <td id="T_71bab_row43_col0" class="data row43 col0" >15024316</td>
+      <td id="T_71bab_row43_col1" class="data row43 col1" >2</td>
+      <td id="T_71bab_row43_col2" class="data row43 col2" >Strangulation - hanging</td>
+      <td id="T_71bab_row43_col3" class="data row43 col3" >253</td>
+      <td id="T_71bab_row43_col4" class="data row43 col4" >94</td>
+      <td id="T_71bab_row43_col5" class="data row43 col5" >37.2%</td>
+      <td id="T_71bab_row43_col6" class="data row43 col6" >159</td>
+      <td id="T_71bab_row43_col7" class="data row43 col7" >Detroit-Warren-Livonia, MI</td>
+      <td id="T_71bab_row43_col8" class="data row43 col8" >62.8%</td>
+      <td id="T_71bab_row43_col9" class="data row43 col9" >Acquaintance</td>
+      <td id="T_71bab_row43_col10" class="data row43 col10" >47.4%</td>
+      <td id="T_71bab_row43_col11" class="data row43 col11" >Other</td>
+      <td id="T_71bab_row43_col12" class="data row43 col12" >55.1%</td>
+      <td id="T_71bab_row43_col13" class="data row43 col13" >2.699395</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row44" class="row_heading level0 row44" >44</th>
+      <td id="T_71bab_row44_col0" class="data row44 col0" >19050234</td>
+      <td id="T_71bab_row44_col1" class="data row44 col1" >2</td>
+      <td id="T_71bab_row44_col2" class="data row44 col2" >Other or type unknown</td>
+      <td id="T_71bab_row44_col3" class="data row44 col3" >380</td>
+      <td id="T_71bab_row44_col4" class="data row44 col4" >222</td>
+      <td id="T_71bab_row44_col5" class="data row44 col5" >58.4%</td>
+      <td id="T_71bab_row44_col6" class="data row44 col6" >158</td>
+      <td id="T_71bab_row44_col7" class="data row44 col7" >Houston-Sugar Land-Baytown, TX</td>
+      <td id="T_71bab_row44_col8" class="data row44 col8" >48.2%</td>
+      <td id="T_71bab_row44_col9" class="data row44 col9" >Stranger</td>
+      <td id="T_71bab_row44_col10" class="data row44 col10" >46.6%</td>
+      <td id="T_71bab_row44_col11" class="data row44 col11" >All other manslaughter by negligence</td>
+      <td id="T_71bab_row44_col12" class="data row44 col12" >47.4%</td>
+      <td id="T_71bab_row44_col13" class="data row44 col13" >1.820703</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row45" class="row_heading level0 row45" >45</th>
+      <td id="T_71bab_row45_col0" class="data row45 col0" >45486699</td>
+      <td id="T_71bab_row45_col1" class="data row45 col1" >2</td>
+      <td id="T_71bab_row45_col2" class="data row45 col2" >Fire</td>
+      <td id="T_71bab_row45_col3" class="data row45 col3" >408</td>
+      <td id="T_71bab_row45_col4" class="data row45 col4" >255</td>
+      <td id="T_71bab_row45_col5" class="data row45 col5" >62.5%</td>
+      <td id="T_71bab_row45_col6" class="data row45 col6" >153</td>
+      <td id="T_71bab_row45_col7" class="data row45 col7" >New York-New Jersey-Long Island, NY-NJ</td>
+      <td id="T_71bab_row45_col8" class="data row45 col8" >52.9%</td>
+      <td id="T_71bab_row45_col9" class="data row45 col9" >Stranger</td>
+      <td id="T_71bab_row45_col10" class="data row45 col10" >19.1%</td>
+      <td id="T_71bab_row45_col11" class="data row45 col11" >Arson</td>
+      <td id="T_71bab_row45_col12" class="data row45 col12" >36.0%</td>
+      <td id="T_71bab_row45_col13" class="data row45 col13" >1.533829</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row46" class="row_heading level0 row46" >46</th>
+      <td id="T_71bab_row46_col0" class="data row46 col0" >8997210</td>
+      <td id="T_71bab_row46_col1" class="data row46 col1" >2</td>
+      <td id="T_71bab_row46_col2" class="data row46 col2" >Firearm, type not stated</td>
+      <td id="T_71bab_row46_col3" class="data row46 col3" >280</td>
+      <td id="T_71bab_row46_col4" class="data row46 col4" >131</td>
+      <td id="T_71bab_row46_col5" class="data row46 col5" >46.8%</td>
+      <td id="T_71bab_row46_col6" class="data row46 col6" >149</td>
+      <td id="T_71bab_row46_col7" class="data row46 col7" >Los Angeles-Long Beach, CA</td>
+      <td id="T_71bab_row46_col8" class="data row46 col8" >54.6%</td>
+      <td id="T_71bab_row46_col9" class="data row46 col9" >Stranger</td>
+      <td id="T_71bab_row46_col10" class="data row46 col10" >27.1%</td>
+      <td id="T_71bab_row46_col11" class="data row46 col11" >Other arguments</td>
+      <td id="T_71bab_row46_col12" class="data row46 col12" >40.9%</td>
+      <td id="T_71bab_row46_col13" class="data row46 col13" >2.113682</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row47" class="row_heading level0 row47" >47</th>
+      <td id="T_71bab_row47_col0" class="data row47 col0" >50508012</td>
+      <td id="T_71bab_row47_col1" class="data row47 col1" >2</td>
+      <td id="T_71bab_row47_col2" class="data row47 col2" >Personal weapons, includes beating</td>
+      <td id="T_71bab_row47_col3" class="data row47 col3" >631</td>
+      <td id="T_71bab_row47_col4" class="data row47 col4" >483</td>
+      <td id="T_71bab_row47_col5" class="data row47 col5" >76.5%</td>
+      <td id="T_71bab_row47_col6" class="data row47 col6" >148</td>
+      <td id="T_71bab_row47_col7" class="data row47 col7" >Chicago-Naperville-Joliet, IL-IN-WI</td>
+      <td id="T_71bab_row47_col8" class="data row47 col8" >25.7%</td>
+      <td id="T_71bab_row47_col9" class="data row47 col9" >Daughter</td>
+      <td id="T_71bab_row47_col10" class="data row47 col10" >21.7%</td>
+      <td id="T_71bab_row47_col11" class="data row47 col11" >Other</td>
+      <td id="T_71bab_row47_col12" class="data row47 col12" >23.7%</td>
+      <td id="T_71bab_row47_col13" class="data row47 col13" >0.935472</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row48" class="row_heading level0 row48" >48</th>
+      <td id="T_71bab_row48_col0" class="data row48 col0" >16787539</td>
+      <td id="T_71bab_row48_col1" class="data row48 col1" >2</td>
+      <td id="T_71bab_row48_col2" class="data row48 col2" >Firearm, type not stated</td>
+      <td id="T_71bab_row48_col3" class="data row48 col3" >299</td>
+      <td id="T_71bab_row48_col4" class="data row48 col4" >155</td>
+      <td id="T_71bab_row48_col5" class="data row48 col5" >51.8%</td>
+      <td id="T_71bab_row48_col6" class="data row48 col6" >144</td>
+      <td id="T_71bab_row48_col7" class="data row48 col7" >Chicago-Naperville-Joliet, IL-IN-WI</td>
+      <td id="T_71bab_row48_col8" class="data row48 col8" >58.2%</td>
+      <td id="T_71bab_row48_col9" class="data row48 col9" >Stranger</td>
+      <td id="T_71bab_row48_col10" class="data row48 col10" >40.5%</td>
+      <td id="T_71bab_row48_col11" class="data row48 col11" >Other arguments</td>
+      <td id="T_71bab_row48_col12" class="data row48 col12" >49.3%</td>
+      <td id="T_71bab_row48_col13" class="data row48 col13" >2.051042</td>
+    </tr>
+    <tr>
+      <th id="T_71bab_level0_row49" class="row_heading level0 row49" >49</th>
+      <td id="T_71bab_row49_col0" class="data row49 col0" >52926741</td>
+      <td id="T_71bab_row49_col1" class="data row49 col1" >2</td>
+      <td id="T_71bab_row49_col2" class="data row49 col2" >Knife or cutting instrument</td>
+      <td id="T_71bab_row49_col3" class="data row49 col3" >654</td>
+      <td id="T_71bab_row49_col4" class="data row49 col4" >522</td>
+      <td id="T_71bab_row49_col5" class="data row49 col5" >79.8%</td>
+      <td id="T_71bab_row49_col6" class="data row49 col6" >132</td>
+      <td id="T_71bab_row49_col7" class="data row49 col7" >Miami-Fort Lauderdale, FL</td>
+      <td id="T_71bab_row49_col8" class="data row49 col8" >48.3%</td>
+      <td id="T_71bab_row49_col9" class="data row49 col9" >Wife</td>
+      <td id="T_71bab_row49_col10" class="data row49 col10" >38.4%</td>
+      <td id="T_71bab_row49_col11" class="data row49 col11" >Other</td>
+      <td id="T_71bab_row49_col12" class="data row49 col12" >43.3%</td>
+      <td id="T_71bab_row49_col13" class="data row49 col13" >0.938092</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Analyst Insights</h2><div></ul><h3>Top by anomaly<li>St. Louis, MO-IL — Firearm, type not stated: UNSOLVED 230/372 (38.2%)<li>Detroit-Warren-Livonia, MI — Strangulation - hanging: UNSOLVED 159/253 (37.2%)<li>New York-New Jersey-Long Island, NY-NJ — Other or type unknown: UNSOLVED 483/985 (51.0%)</ul><br/></ul><h3>Top by unsolved<li>New York-New Jersey-Long Island, NY-NJ — Handgun - pistol, revolver, etc: UNSOLVED 1168/3386 (65.5%)<li>Los Angeles-Long Beach, CA — Handgun - pistol, revolver, etc: UNSOLVED 1068/3936 (72.9%)<li>New York-New Jersey-Long Island, NY-NJ — Knife or cutting instrument: UNSOLVED 899/3187 (71.8%)</ul><br/></ul><h3>Data-gap watchlist (REPORT_GAP_IDX ≥ 0.6)<li>Detroit-Warren-Livonia, MI — Firearm, type not stated: UNSOLVED 295/640 (53.9%)<li>Miami-Fort Lauderdale, FL — Other or type unknown: UNSOLVED 283/616 (54.1%)<li>St. Louis, MO-IL — Firearm, type not stated: UNSOLVED 230/372 (38.2%)</div><h2>Map</h2><iframe src=".\adv_crim\out\report_map.html" width="100%" height="520" frameborder="0"></iframe><h3>Case-dump shortcuts (Windows)</h3><code>python map_cluster.py ".\adv_crim\SHR65_23.csv" --group msa --dump-msa "New York-New Jersey-Long Island, NY-NJ" --dump-weapon "Handgun - pistol, revolver, etc" --outdir out</code><br/><code>python map_cluster.py ".\adv_crim\SHR65_23.csv" --group msa --dump-msa "Los Angeles-Long Beach, CA" --dump-weapon "Handgun - pistol, revolver, etc" --outdir out</code><br/><code>python map_cluster.py ".\adv_crim\SHR65_23.csv" --group msa --dump-msa "New York-New Jersey-Long Island, NY-NJ" --dump-weapon "Knife or cutting instrument" --outdir out</code>

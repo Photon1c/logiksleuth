@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b2a3ee298de4a0397d89e31ca0a2df0d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b2a3ee298de4a0397d89e31ca0a2df0d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b2a3ee298de4a0397d89e31ca0a2df0d = L.map(
+                "map_b2a3ee298de4a0397d89e31ca0a2df0d",
+                {
+                    center: [32.4252, -86.3884],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_b2a3ee298de4a0397d89e31ca0a2df0d);
+
+            
+
+        
+    
+            var tile_layer_f3cbbffaac1530fd2e0de8330961a533 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f3cbbffaac1530fd2e0de8330961a533.addTo(map_b2a3ee298de4a0397d89e31ca0a2df0d);
+        
+    
+            var circle_marker_6d1fa879aed948c4e78a4bb66bf9e0d9 = L.circleMarker(
+                [32.3668, -86.2999],
+                {"bubblingMouseEvents": true, "color": "#fc8d59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc8d59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.0, "stroke": true, "weight": 3}
+            ).addTo(map_b2a3ee298de4a0397d89e31ca0a2df0d);
+        
+    
+        var popup_587c2e4290636c5d69c8c9b04bac80a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8adcb6ae20b2c59eadc578c595d6f214 = $(`<div id="html_8adcb6ae20b2c59eadc578c595d6f214" style="width: 100.0%; height: 100.0%;"><b>Montgomery</b><br/>ORI: AL00301<br/>Unsolved: 25/35<br/>Clearance: 28.6%</div>`)[0];
+                popup_587c2e4290636c5d69c8c9b04bac80a4.setContent(html_8adcb6ae20b2c59eadc578c595d6f214);
+            
+        
+
+        circle_marker_6d1fa879aed948c4e78a4bb66bf9e0d9.bindPopup(popup_587c2e4290636c5d69c8c9b04bac80a4)
+        ;
+
+        
+    
+    
+            var circle_marker_d11b55f9c8228d2c0687bdc45aa2a7af = L.circleMarker(
+                [32.597, -86.143],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_b2a3ee298de4a0397d89e31ca0a2df0d);
+        
+    
+        var popup_bb93617e3abf41c620cf091811e790f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff7cbd40853f4203a2cbd726b3ebd5ca = $(`<div id="html_ff7cbd40853f4203a2cbd726b3ebd5ca" style="width: 100.0%; height: 100.0%;"><b>Elmore County</b><br/>ORI: AL02900<br/>Unsolved: 5/8<br/>Clearance: 37.5%</div>`)[0];
+                popup_bb93617e3abf41c620cf091811e790f9.setContent(html_ff7cbd40853f4203a2cbd726b3ebd5ca);
+            
+        
+
+        circle_marker_d11b55f9c8228d2c0687bdc45aa2a7af.bindPopup(popup_bb93617e3abf41c620cf091811e790f9)
+        ;
+
+        
+    
+    
+            var circle_marker_26bb6e9f5b63524a65b10324118799ef = L.circleMarker(
+                [32.464, -86.4597],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_b2a3ee298de4a0397d89e31ca0a2df0d);
+        
+    
+        var popup_cea77f310d11f4d8e4dac8998ece93ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_593e64ec266361d5a83c85f8d24c169d = $(`<div id="html_593e64ec266361d5a83c85f8d24c169d" style="width: 100.0%; height: 100.0%;"><b>Prattville</b><br/>ORI: AL00401<br/>Unsolved: 2/2<br/>Clearance: 0.0%</div>`)[0];
+                popup_cea77f310d11f4d8e4dac8998ece93ba.setContent(html_593e64ec266361d5a83c85f8d24c169d);
+            
+        
+
+        circle_marker_26bb6e9f5b63524a65b10324118799ef.bindPopup(popup_cea77f310d11f4d8e4dac8998ece93ba)
+        ;
+
+        
+    
+    
+            var circle_marker_6142ccce6357ffb9ae711a8dbaa8869d = L.circleMarker(
+                [32.273, -86.651],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_b2a3ee298de4a0397d89e31ca0a2df0d);
+        
+    
+        var popup_7a9ad53ce4295cc1456700cb0883520a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c7c184db1f4957c34a82b07a2f880a7 = $(`<div id="html_0c7c184db1f4957c34a82b07a2f880a7" style="width: 100.0%; height: 100.0%;"><b>Lowndes County</b><br/>ORI: AL04500<br/>Unsolved: 1/2<br/>Clearance: 50.0%</div>`)[0];
+                popup_7a9ad53ce4295cc1456700cb0883520a.setContent(html_0c7c184db1f4957c34a82b07a2f880a7);
+            
+        
+
+        circle_marker_6142ccce6357ffb9ae711a8dbaa8869d.bindPopup(popup_7a9ad53ce4295cc1456700cb0883520a)
+        ;
+
+        
+    
+</script>
+</html>

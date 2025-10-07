@@ -1,0 +1,85 @@
+
+#Per Ori
+python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex female --dump-msa "Montgomery, AL" --dump-weapon "Firearm, type not stated" --per-ori --report-format html --outdir out
+
+#Montgomery-only (modern era), HTML report + map
+python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex female --msa-only "Montgomery, AL" --relcirc --min-decade 2010 --min-total 15 --threshold 0.33 --report-format html --outdir out
+
+#Dump + per-ORI + Montgomery-only report (everything lines up)
+python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex female --dump-msa "Montgomery, AL" --dump-weapon "Firearm, type not stated" --per-ori --msa-only "Montgomery, AL" --report-format html --outdir out
+
+#Top N clusters report
+python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 0.33 --min-total 15 --relcirc --top 20 --report-format html --report-file out\report_msa.html --outdir out
+
+#Relaxed Filters
+python .\adv_crim\map_cluster.py .\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 1.0 --min-total 1 --relcirc --top 50 --report-format html --outdir .\adv_crim\out
+
+#Less Ns
+python .\adv_crim\map_cluster.py .\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 0.33 --min-total 15 --relcirc --top 20 --report-format html --outdir .\adv_crim\out
+
+# Example pattern for a top cluster (replace with the exact MSA and weapon shown in the report)
+python .\adv_crim\map_cluster.py .\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --dump-msa "Salt Lake City, UT" --dump-weapon "Strangulation - hanging" --per-ori --outdir .\adv_crim\out
+
+# =====================
+# Top N cluster variants
+# =====================
+
+# National Top 20 (female), HTML report with explicit absolute paths
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 0.33 --min-total 15 --relcirc --top 20 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top20_msa_female.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# National Top 20 (male), HTML report
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex male --threshold 0.33 --min-total 15 --relcirc --top 20 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top20_msa_male.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# National Top 50 (female), relaxed filters
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 1.0 --min-total 1 --relcirc --top 50 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top50_msa_female_relaxed.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# National Top 10 (female), strict filters
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 0.5 --min-total 25 --relcirc --top 10 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top10_msa_female_strict.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# National Top 20 (female), absolute counts (no relcirc)
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --threshold 0.33 --min-total 15 --top 20 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top20_msa_female_absolute.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# MSA-only Top 10 (female) for Montgomery, modern era
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --msa-only "Montgomery, AL" --min-decade 2010 --threshold 0.33 --min-total 15 --relcirc --top 10 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top10_montgomery_female.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# MSA-only Top 10 (male) for Montgomery, modern era
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex male --msa-only "Montgomery, AL" --min-decade 2010 --threshold 0.33 --min-total 15 --relcirc --top 10 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top10_montgomery_male.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# MSA-only Top 20 (female) for a placeholder MSA (replace the name)
+python D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\map_cluster.py D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\SHR65_23.csv --group msa --solved-source field --focus-sex female --msa-only "<Replace with MSA, e.g., \"Salt Lake City, UT\">" --threshold 0.33 --min-total 15 --relcirc --top 20 --report-format html --report-file D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out\report_top20_msa_only_female.html --outdir D:\SereneOcean\csint_suite\criminology\adv_crim\adv_crim\out
+
+# =====================
+# Usage tips and variants
+# =====================
+
+# Top N controls the ranking length (e.g., --top 10, 20, 50)
+# Report formats supported: md (default), html, csv
+
+# Quick-start using presets (recommended):
+python map_cluster.py SHR65_23.csv --preset modern_female --top 20 --report-format md --report-file out\report_msa.md --outdir out
+python map_cluster.py SHR65_23.csv --preset modern_female --report-format html --outdir out
+python map_cluster.py SHR65_23.csv --preset modern_female --report-format csv  --outdir out
+
+# Strict-modern preset (higher bar), HTML report
+python map_cluster.py SHR65_23.csv --preset strict_modern --top 20 --report-format html --report-file out\report_msa_strict.html --outdir out
+
+# County-level Top N (instead of MSA)
+python map_cluster.py SHR65_23.csv --group county --solved-source field --focus-sex female --relcirc --min-decade 2010 --min-total 20 --threshold 0.30 --top 20 --report-format html --report-file out\report_county.html --outdir out
+
+# By-decade grouping (splits clusters by decade), CSV report
+python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex female --by-decade --relcirc --min-decade 2000 --min-total 15 --threshold 0.33 --top 15 --report-format csv --report-file out\report_msa_by_decade.csv --outdir out
+
+# Require minimum share of known Relationship (e.g., 30%)
+python map_cluster.py SHR65_23.csv --group msa --solved-source field --focus-sex female --min-known-rel 0.30 --relcirc --min-decade 2010 --min-total 15 --threshold 0.33 --top 20 --report-format html --report-file out\report_msa_minKnownRel30.html --outdir out
+
+# Disable writing a report file (print top-N only to console)
+python map_cluster.py SHR65_23.csv --preset modern_female --top 10 --no-report
+
+# Set a custom report title (shown at top of the report)
+python map_cluster.py SHR65_23.csv --preset modern_female --top 20 --report-title "Modern Female MSA Risk Scan" --report-format html --report-file out\modern_female_msa.html --outdir out
+
+# Produce aggregates only (skip filtering), CSV output
+python map_cluster.py SHR65_23.csv --group msa --no-filter --report-format csv --report-file out\agg_msa.csv --outdir out
+
+# Note: --include-map is enabled by default. To embed per-ORI maps, ensure per-ORI CSV exists or set --per-ori-file explicitly.
+python map_cluster.py SHR65_23.csv --preset modern_female --top 20 --report-format html --per-ori-file out\dump_cases_per_ori.csv --report-file out\report_msa_with_map.html --outdir out

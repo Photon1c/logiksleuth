@@ -188,6 +188,8 @@ def main():
     ap.add_argument('--dump-out', default='out/dump_cases.csv', help='CSV path to write case-level rows.')
     ap.add_argument('--per-ori', action='store_true',
                     help='When dumping cases, also write per-ORI summary CSV for the matched cluster.')
+    ap.add_argument('--auto-per-ori', action='store_true',
+                    help='Auto-build per-ORI CSV for current top-N clusters (saved to <outdir>/dump_cases_per_ori.csv).')
     # add with your other args
     ap.add_argument('--relcirc', action='store_true',
                     help='Add Relationship/Circumstance unknown rates & top category per cluster.')
@@ -366,6 +368,49 @@ def main():
         if c in view.columns: cols.append(c)
     print(view[[c for c in cols if c in view.columns]].head(args.top).to_string(index=False))   
     
+    # Auto-build per-ORI CSV for the current top-N clusters (before report)
+    if args.auto_per_ori:
+        if view.empty:
+            print("[Auto] Skipping per-ORI build; view is empty after filters.")
+        else:
+            try:
+                gid_field = 'MURDGRP2' if args.group == 'msa' else 'MURDGRP1'
+                # Sort like the report (least solved first, then highest unsolved)
+                if 'UNSOLVED' in view.columns:
+                    vtop = (view.sort_values(['PERCENT','UNSOLVED'], ascending=[True, False], na_position='last')
+                                .head(args.top))
+                else:
+                    vtop = view.sort_values(['PERCENT'], ascending=[True], na_position='last').head(args.top)
+                top_ids = set(vtop['MURDGRP'].dropna().astype(int).tolist())
+                if not top_ids:
+                    print("[Auto] No cluster IDs found to build per-ORI.")
+                else:
+                    # Filter case-level rows belonging to selected clusters
+                    if gid_field not in df.columns:
+                        print(f"[Auto] Missing group id column '{gid_field}' in dataframe; cannot build per-ORI.")
+                    elif 'Ori' not in df.columns or 'Agency' not in df.columns:
+                        print("[Auto] Missing 'Ori' or 'Agency' column; cannot build per-ORI map file.")
+                    else:
+                        q = df[df[gid_field].isin(top_ids)].copy()
+                        per_ori = (q.groupby(['Ori','Agency'], dropna=False)
+                                     .agg(TOTAL=('SOLVED','count'),
+                                          SOLVED=('SOLVED','sum'),
+                                          REL_UNK_RATE=('Relationship', _unknown_rate) if 'Relationship' in q.columns else ('SOLVED','sum'),
+                                          CIRC_UNK_RATE=('Circumstance', _unknown_rate) if 'Circumstance' in q.columns else ('SOLVED','sum'))
+                                     .reset_index())
+                        # If relationship/circumstance absent, above used placeholders; drop them
+                        if isinstance(per_ori['REL_UNK_RATE'].dtype, pd.core.dtypes.dtypes.IntegerDtype) or str(per_ori['REL_UNK_RATE'].dtype).startswith('int'):
+                            per_ori.drop(columns=['REL_UNK_RATE'], inplace=True)
+                        if isinstance(per_ori['CIRC_UNK_RATE'].dtype, pd.core.dtypes.dtypes.IntegerDtype) or str(per_ori['CIRC_UNK_RATE'].dtype).startswith('int'):
+                            per_ori.drop(columns=['CIRC_UNK_RATE'], inplace=True)
+                        per_ori['PERCENT']  = per_ori['SOLVED'] / per_ori['TOTAL']
+                        per_ori['UNSOLVED'] = per_ori['TOTAL'] - per_ori['SOLVED']
+                        side_path = os.path.join(args.outdir, 'dump_cases_per_ori.csv')
+                        per_ori.sort_values(['UNSOLVED','TOTAL'], ascending=[False, False]).to_csv(side_path, index=False)
+                        print("[Auto] per-ORI summary ->", side_path)
+            except Exception as e:
+                print("[Auto] Failed to build per-ORI:", e)
+
     # Write human-readable report (runs even if view is empty)
     if args.report:
         report_path = write_report(

@@ -1,0 +1,16 @@
+# Core dependencies (already used)
+# Python 3.8+
+
+# New dependencies for add-ons
+dash>=2.14.0          # Web UI framework
+plotly>=5.17.0        # Interactive graphing
+networkx>=3.1         # Graph layout algorithms
+
+# Agent dependencies (optional - for --agent mode)
+openai>=1.0.0         # OpenAI API for agent reasoning
+python-dotenv>=1.0.0  # Load API keys from .env file
+
+# Optional for development
+# pytest>=7.4.0       # Alternative test runner
+
+

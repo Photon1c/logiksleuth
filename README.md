@@ -5,6 +5,8 @@
 
 *This repository is now maintained with Cursor and Cloudfare Agents 🤖☁️.*
 
+10.11.25 Update: The [Columbo](https://github.com/Photon1c/logiksleuth/tree/main/criminology/Columbo) analysis CLI is now available. It uses OpenAI to create independent agents, check back later as it is updated.
+
 
 8.17.25 Update: The [Murder Accountability Project](https://github.com/Photon1c/logiksleuth/tree/main/MurderAccountabilityProject) fork with add-ons is now available. It provides a basic CLI to interfact with the FBI's UCR datasets spanning decades, filtering cases by closed, active, or other customizable statuses.   
 

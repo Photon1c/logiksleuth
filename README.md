@@ -1,6 +1,10 @@
 # 🔍 Logiksleuth 🔎 
 
-*Now audited with Cursor and Cloudflare agents 🤖☁️*  
+![Cursor](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ18A9mlKIzlij_O5U59P_xivyjup2uGgb6IA&s)
+![Cloudfare](https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ojolial4xcf1i0txz9qh)
+
+*This repository is now maintained with Cursor and Cloudfare Agents 🤖☁️.*
+
 
 8.17.25 Update: The [Murder Accountability Project](https://github.com/Photon1c/logiksleuth/tree/main/MurderAccountabilityProject) fork with add-ons is now available. It provides a basic CLI to interfact with the FBI's UCR datasets spanning decades, filtering cases by closed, active, or other customizable statuses.   
 

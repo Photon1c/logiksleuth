@@ -1,0 +1,6 @@
+edge_id,src,dst,etype,claim,confidence,independence,sources
+E1,A_inst,A_fac1,FUNDING,Indirect funding flows toward Alpha pre-event,0.6,0.5,EV1;EV3
+E2,A_fac1,A_exec,COMMS,Ambiguous contact via intermediary,0.4,0.6,EV2
+E3,A_fac1,A_fac1,STAND_DOWN,Operational posture downgraded on event day,0.7,0.7,EV4;EV5
+E4,A_fac1,A_inst,COVERUP,Post-event narrative management,0.5,0.6,EV6
+

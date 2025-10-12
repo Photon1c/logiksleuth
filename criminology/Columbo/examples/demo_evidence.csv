@@ -1,0 +1,9 @@
+id,stype,summary,url_or_ref,integrity_score,contradicts,supports
+EV1,FINREC,Unusual pre-event transfers,,0.5,,E1
+EV2,COMMS,Metadata-only contact chain,,0.5,,E2
+EV3,FINREC,Additional financial anomalies,,0.5,,E1
+EV4,DOC,Duty roster change,,0.5,,E3
+EV5,MEDIA,On-scene timeline discrepancies,,0.5,,E3
+EV6,MEDIA,Briefing inconsistencies,,0.5,,E4
+EV7,DOC,Complete operational logs show normal procedures,,0.5,E3,
+

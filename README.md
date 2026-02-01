@@ -22,7 +22,7 @@ The /examples directory contains simple starting scripts that use well-known boa
 
 
 # Introduction: Now in Development
-Logiksleuth is collection of scripts that aim to make the process of elimination a machine learnable task, which can potentially elucidate
+Logiksleuth is a collection of scripts that aim to make the process of elimination a machine learnable task, which can potentially elucidate
 blind spots to end users. The initial sample scripts take a lesson from games like 20 Questions, CLUE, and Guess Who to arrive at the
 most probable answer given a set of clearly defined inputs to start from. 
 

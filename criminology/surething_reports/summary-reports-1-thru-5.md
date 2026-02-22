@@ -1,0 +1,9 @@
+Surething Phase 1 Summary (Reports 1–5)
+
+Across Reports 1–5, Surething established a structural baseline for homicide clearance dynamics using the Murder Accountability Project dataset (~865k cases). The national clearance rate shows a long-term decline from the late 1970s into the mid-1990s, partial recovery through the early 2000s, a secondary dip around 2016, and renewed improvement through 2023. However, recovery is uneven across jurisdictions, with several high-volume states exhibiting persistent clearance deficits relative to the national baseline.
+
+Feature engineering formalized case structure variables including MO class, weapon rarity, victim fingerprinting, temporal burst detection, and geographic clustering. These enabled early cluster identification, most notably the Detroit “Gamma” cluster (gas asphyxiation, female victims, geographic concentration, dormancy pattern), illustrating how rarity, coherence, and temporal compression can flag elevated serial probability.
+
+Phase 1 predictive modeling (logistic regression, balanced class weights) achieved modest discrimination (AUC ~0.59) and ~64% recall on unsolved cases. Victim sex, weapon family, decade, and state emerged as structural predictors. Female-victim cases showed higher clearance odds, implying systemic bias toward domestic/intimate contexts over gang or street homicides. Report 5 previews a Phase 1b Random Forest model but identifies a ceiling: case-level features alone insufficiently explain clearance without operational variables (detective resources, lab capacity, witness cooperation).
+
+The primary insight of Phase 1 is structural: clearance outcomes are not purely case-driven but system-driven. Forensic capacity, analytic infrastructure, and jurisdictional process maturity appear to be decisive constraints. Future modeling must integrate resource-level variables to move from descriptive trend analysis to operational decision support.

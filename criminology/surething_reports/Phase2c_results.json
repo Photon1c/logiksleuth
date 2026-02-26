@@ -1,0 +1,119 @@
+(ripenv) D:\dumpzone\surething>python clearance_engine_v2.0.py --parquet processed.parquet --ucr_pe ucr_pe_state_sworn_officers_2019.csv --output_dir /
+======================================================================
+CLEARANCE ENGINE v2.0 -- JURISDICTION-LEVEL PANEL MODEL (patched)
+Murder Accountability Project | Watson | Feb 25, 2026
+======================================================================
+
+[1/8] Loading data...
+  processed.parquet: 865,024 rows x 31 columns
+  Available columns: ['actiontype', 'agency', 'agentype', 'circumstance', 'cntyfips', 'filedate', 'homicide', 'id', 'incident', 'month', 'msa', 'offage', 'offcount', 'offethnic', 'offrace', 'offsex', 'ori', 'relationship', 'situation', 'solved', 'source', 'state', 'subcircum', 'vicage', 'viccount', 'vicethnic', 'vicrace', 'vicsex', 'vicsex_code', 'weapon', 'year']
+  Year column: 'year' (1976-2023)
+  [INFO] vicrace column FOUND -- demographic equity analysis available
+
+[2/8] Building jurisdiction-year panel...
+  Raw panel rows: 2423
+  [WARN] urban_rural_code not found -- V-J7 set to 0.5
+  After min-volume filter: 2366 rows (dropped 57)
+
+[3/8] Engineering lagged and derived features...
+
+[4/8] Merging UCR PE staffing data (V-J8)...
+  UCR PE: 51 rows | columns: ['state', 'total_sworn_officers', 'population', 'officers_per_100k', 'num_agencies', 'male_officers', 'female_officers', 'year']
+  Using exact column: officers_per_100k
+  Matched: 2277/2366 rows (96.2%)
+  DC: not matched
+  [OK] year_norm unique after merge
+
+[5/8] Running Two-Way Fixed Effects regression...
+  Panel: (2179, 9) (49 states)
+  [ERROR] exog does not have full column rank. If you wish to proceed with model estimation irrespective of the numerical accuracy of coefficient estimates, you can set check_rank=False.
+
+[6/8] Training XGBoost jurisdiction model...
+  Dataset: 2,179 rows | features: ['solve_rate_lag1', 'volume_yoy_change', 'reporting_comp_mean', 'gang_gun_share', 'urban_share', 'officers_per_100k_norm', 'clearance_rate_ma3', 'clearance_trend_3yr', 'year_norm']
+  Train<=2013: 1690 | Test 2014-2023: 489
+  Naive baseline: MAE=4.71 pts
+  MAE train=1.28 test=2.49 naive=4.71 pts
+  RMSE test=3.31 | R2 train=0.9763 test=0.9350
+  Beat naive: YES
+  SHAP importance (jurisdiction level):
+  # 1 clearance_rate_ma3                  0.08389
+  # 2 clearance_trend_3yr                 0.02960
+  # 3 reporting_comp_mean                 0.02430
+  # 4 year_norm                           0.01093
+  # 5 solve_rate_lag1                     0.00529
+  # 6 volume_yoy_change                   0.00254
+  # 7 officers_per_100k_norm              0.00181
+  # 8 gang_gun_share                      0.00000
+  # 9 urban_share                         0.00000
+
+[7/8] Computing exact jurisdiction clearance rankings...
+  National avg: 71.88% | States: 51
+  TOP 10:
+ rank          state  clearance_pct  clearance_pct_recent  unsolved
+    1   North Dakota          95.07                 97.65        30
+    2   South Dakota          92.90                 94.52        59
+    3          Idaho          91.18                 94.49       155
+    4        Montana          91.10                 91.29       100
+    5          Maine          89.98                 94.81       131
+    6        Wyoming          89.21                 87.95       100
+    7  West Virginia          89.15                 85.85       474
+    8 South Carolina          88.73                 82.88      1977
+    9        Vermont          88.33                 89.33        70
+   10           Utah          86.90                 91.56       385
+  BOTTOM 10:
+ rank                state  clearance_pct  clearance_pct_recent  unsolved
+   42              Indiana          68.24                 65.28      5168
+   43          Connecticut          67.51                 66.25      2106
+   44             Missouri          65.83                 68.59      7496
+   45        Massachusetts          65.20                 64.99      2806
+   46           New Jersey          64.75                 58.07      6467
+   47           California          64.15                 59.41     44586
+   48             Illinois          62.57                 48.25     13827
+   49             Maryland          61.44                 55.67      8548
+   50             New York          60.64                 66.65     21291
+   51 District of Columbia          42.14                 51.33      5211
+
+[8/8] Running intervention simulations...
+  State                  Intervention                         Base    Y1    Y3    Y5  Add5yr
+  -------------------------------------------------------------------------------------
+  Illinois               -20% homicide volume                 61.8  58.5  58.4  58.4       0
+                         +10 pts reporting completeness       61.8  58.5  58.5  58.5       0
+                         +5 pts solve_rate (detective caseload proxy)  61.8  58.2  59.0  59.0       0
+  Maryland               -20% homicide volume                 63.9  58.7  61.1  61.4       0
+                         +10 pts reporting completeness       63.9  59.0  61.3  61.5       0
+                         +5 pts solve_rate (detective caseload proxy)  63.9  58.8  61.4  61.4       0
+  California             -20% homicide volume                 67.7  63.4  64.3  64.3       0
+                         +10 pts reporting completeness       67.7  64.0  64.6  64.6       0
+                         +5 pts solve_rate (detective caseload proxy)  67.7  64.0  65.2  65.8       0
+  Louisiana              -20% homicide volume                 72.8  70.1  71.4  71.0       0
+                         +10 pts reporting completeness       72.8  70.4  71.2  71.3       0
+                         +5 pts solve_rate (detective caseload proxy)  72.8  70.0  71.7  71.7       0
+  Michigan               -20% homicide volume                 74.6  75.6  75.9  75.9      49
+                         +10 pts reporting completeness       74.6  76.0  76.2  76.2      60
+                         +5 pts solve_rate (detective caseload proxy)  74.6  75.6  75.6  75.6      37
+  Indiana                -20% homicide volume                 70.8  67.9  67.9  67.9       0
+                         +10 pts reporting completeness       70.8  69.1  69.0  69.0       0
+                         +5 pts solve_rate (detective caseload proxy)  70.8  69.2  68.6  68.4       0
+  Florida                -20% homicide volume                 73.1  68.7  68.2  68.2       0
+                         +10 pts reporting completeness       73.1  69.4  69.0  69.0       0
+                         +5 pts solve_rate (detective caseload proxy)  73.1  68.6  68.1  68.1       0
+  Georgia                -20% homicide volume                 73.3  76.5  76.8  76.8     127
+                         +10 pts reporting completeness       73.3  76.5  76.8  76.8     127
+                         +5 pts solve_rate (detective caseload proxy)  73.3  77.3  76.9  76.9     130
+  Texas                  -20% homicide volume                 84.7  84.6  84.6  84.6       0
+                         +10 pts reporting completeness       84.7  85.5  85.4  85.4      74
+                         +5 pts solve_rate (detective caseload proxy)  84.7  83.7  83.7  83.7       0
+
+[SAVING]
+  \phase2c_results.json
+  \jurisdiction_rankings_exact.md
+  \intervention_roi_table.md
+
+======================================================================
+CLEARANCE ENGINE v2.0 COMPLETE
+  XGB test MAE: 2.49 pct pts | Beat naive: True
+  States ranked: 51 (EXACT point estimates)
+  Outputs: \
+  phase2c_results.json | jurisdiction_rankings_exact.md | intervention_roi_table.md
+
+Next: paste phase2c_results.json into Watson chat for Report #11
